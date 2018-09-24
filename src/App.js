@@ -32,6 +32,16 @@ Amplify.configure({
 
 class App extends Component {
 
+  async componentDidMount() {
+    let userInput = "Hola Timo";
+
+    // Provide a bot name and user input
+    const response =  await Interactions.send("Quotes", userInput);
+
+    // Log chatbot response
+    console.log (response.message);
+  }
+
   handleComplete(err, confirmation) {
     if (err) {
       alert('Bot conversation failed')
@@ -48,14 +58,17 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to ChatBot Demo</h1>
         </header>
-        <ChatBot
-          title="Quotes Bot"
-          theme={myTheme}
-          botName="Quotes"
-          welcomeMessage="Welcome, how can I help you today?"
-          onComplete={this.handleComplete.bind(this)}
-          clearOnComplete={true}
-        />
+        {
+          // <ChatBot
+          //   title="Quotes Bot"
+          //   theme={myTheme}
+          //   botName="Quotes"
+          //   welcomeMessage="Welcome, how can I help you today?"
+          //   onComplete={this.handleComplete.bind(this)}
+          //   clearOnComplete={true}
+          // />
+        }
+        
       </div>
     );
   }
