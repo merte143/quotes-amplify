@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "quotesamplify-20180924211931-authRole",
+            "UnauthRoleArn": "arn:aws:iam::713457383886:role/quotesamplify-20180924211931-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::713457383886:role/quotesamplify-20180924211931-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "quotesamplify-20180924211931-deployment",
+            "UnauthRoleName": "quotesamplify-20180924211931-unauthRole",
+            "StackName": "quotesamplify-20180924211931",
+            "StackId": "arn:aws:cloudformation:eu-west-1:713457383886:stack/quotesamplify-20180924211931/c418ac20-c02e-11e8-978c-500c4267f861"
+        }
+    }
+}
