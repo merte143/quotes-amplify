@@ -1,0 +1,62 @@
+@import "../../variables.scss";
+
+.action-container {
+  position: fixed;
+  bottom: -200px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  padding: 10px 0px;
+  @media (min-width: $screen-sm) {
+    padding: 30px 0px;
+  }
+  .btn {
+    padding: 22px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    margin: 6px;
+    vertical-align: baseline;
+    font-weight: 400;
+    @media (min-width: $screen-sm) {
+      font-size: 26px;
+    }
+  }
+  .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    .form-control {
+      padding: 20px 16px;
+      font-size: 18px;
+      margin: 6px;
+      height: initial;
+      width: initial;
+      @media (min-width: $screen-sm) {
+        font-size: 26px;
+      }
+    }
+    .form-control-feedback {
+      top: 20px;
+      right: 20px;
+      font-size: 26px;
+    }
+  }
+  .navigation-buttons {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: none;
+    @media (min-width: $screen-sm) {
+      display: block;
+    }
+    .btn {
+      margin: 0px 0px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  }
+  &.show {
+    bottom: 0;
+  }
+  transition: all 1s ease-in-out;
+}

@@ -1,0 +1,56 @@
+/* Variables */
+/* Colors */
+/* Cloudfront */
+/* Main margins */
+.action-container {
+  position: fixed;
+  bottom: -200px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  padding: 10px 0px;
+  transition: all 1s ease-in-out; }
+  @media (min-width: 768px) {
+    .action-container {
+      padding: 30px 0px; } }
+  .action-container .btn {
+    padding: 22px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    margin: 6px;
+    vertical-align: baseline;
+    font-weight: 400; }
+    @media (min-width: 768px) {
+      .action-container .btn {
+        font-size: 26px; } }
+  .action-container .form-group {
+    display: inline-block;
+    margin-bottom: 0; }
+    .action-container .form-group .form-control {
+      padding: 20px 16px;
+      font-size: 18px;
+      margin: 6px;
+      height: initial;
+      width: initial; }
+      @media (min-width: 768px) {
+        .action-container .form-group .form-control {
+          font-size: 26px; } }
+    .action-container .form-group .form-control-feedback {
+      top: 20px;
+      right: 20px;
+      font-size: 26px; }
+  .action-container .navigation-buttons {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: none; }
+    @media (min-width: 768px) {
+      .action-container .navigation-buttons {
+        display: block; } }
+    .action-container .navigation-buttons .btn {
+      margin: 0px 0px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 12px; }
+  .action-container.show {
+    bottom: 0; }

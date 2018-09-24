@@ -1,5 +1,50 @@
+/* Variables */
+/* Colors */
+/* Cloudfront */
+/* Main margins */
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: #3D3A3A; }
+  @media (min-width: 768px) {
+    body {
+      font-size: 32px; } }
+
+button, a {
+  background-image: none !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 0px; }
+  button.btn-primary, a.btn-primary {
+    background-color: #F29335;
+    border-color: #F29335;
+    border: 0px;
+    border-radius: 0px; }
+    button.btn-primary:hover, a.btn-primary:hover {
+      background-color: #d98a3f; }
+  button.btn-primary.inverse, a.btn-primary.inverse {
+    background-color: transparent;
+    color: #F29335;
+    border: 2px solid #F29335; }
+  button.btn-primary.green, a.btn-primary.green {
+    padding: 11px 16px;
+    background-color: #1abc9c; }
+  button.btn-primary.inverse.green, a.btn-primary.inverse.green {
+    background-color: transparent; }
+  button.btn-link, a.btn-link {
+    padding: 10px 0px;
+    color: #F29335; }
+  button.inverse.white, a.inverse.white {
+    border-color: #FFF;
+    background-color: transparent;
+    color: #FFF; }
+  button.full-width, a.full-width {
+    width: 100%; }
+  button.btn-lg, a.btn-lg {
+    padding: 15px 16px; }
+  button.more-button, a.more-button {
+    margin-top: -4px;
+    padding: 0; }

@@ -1,0 +1,116 @@
+@import "../../variables.scss";
+
+.footer {
+  .links {
+    background: $color-light-grey;
+    h3 {
+      margin: 40px 0px 15px 0px;
+    }
+    a {
+      display: block;
+      color: $color-black;
+    }
+    .icon-visa {
+      background-position: -631px -1127px;
+      width: 50px;
+      height: 23px;
+    }
+    .icon-master {
+      background-position: -396px -1126px;
+      width: 39px;
+      height: 28px;
+    }
+    .icon-ae {
+      background-position: -283px -1125px;
+      width: 27px;
+      height: 28px;
+    }
+    .icon-paypal {
+      background-position: -521px -1124px;
+      width: 26px;
+      height: 26px;
+    }
+    .icon-invoice {
+      background-position: -762px -1123px;
+      width: 37px;
+      height: 29px;
+    }
+    .icon-country-at {
+      background-position: -1010px -889px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-se {
+      background-position: -47px -1133px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-nl {
+      background-position: -528px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-pl {
+      background-position: -773px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-no {
+      background-position: -643px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-dk {
+      background-position: -47px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-it {
+      background-position: -401px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-uk {
+      background-position: -170px -1131px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-es {
+      background-position: -890px -1011px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-fr {
+      background-position: -171px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-bl {
+      background-position: -1006px -1009px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-country-fl {
+      background-position: -891px -1129px;
+      width: 23px;
+      height: 18px;
+    }
+    .icon-trustedshops {
+      background: url($assets-url + 'security-badges.png') no-repeat 0;
+      background-position: -160px -41px;
+      display: inline-block;
+      width: 43px;
+      height: 43px;
+    }
+    .legal {
+      margin: 40px 0px 20px 0px;
+      text-align: center;
+      a {
+        display: inline-block;
+        margin: 10px 5px;
+        font-size: 15px;
+        color: $color-black;
+      }
+    }
+  }
+}

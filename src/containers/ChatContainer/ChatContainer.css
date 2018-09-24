@@ -1,0 +1,19 @@
+/* Variables */
+/* Colors */
+/* Cloudfront */
+/* Main margins */
+.chat-container .bot-profile {
+  width: 100%;
+  text-align: center; }
+  .chat-container .bot-profile img {
+    width: 80px;
+    margin: 40px 0 30px 0px;
+    border-radius: 50%; }
+    @media (min-width: 768px) {
+      .chat-container .bot-profile img {
+        width: 100px; } }
+
+.chat-container .wrapper {
+  width: 100%; }
+  .chat-container .wrapper .chat {
+    width: 100%; }
