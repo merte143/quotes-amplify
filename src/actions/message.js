@@ -1,14 +1,38 @@
-import Axios from 'axios'
 import * as GLOBAL from '../modules/globals.js'
+import Amplify, { Interactions } from 'aws-amplify';
 
-// API URL
-const API_URL = GLOBAL.API_URL + '/message'
+// configure amplify
+Amplify.configure({
+  Auth: {
+    // Use your Amazon Cognito Identity Pool Id
+    identityPoolId: GLOBAL.COGNITO_ID,
+    region: GLOBAL.AWS_REGION
+  },
+  Interactions: {
+    bots: {
+      'Quotes': {
+        'name': GLOBAL.BOT_NAME,
+        'alias': GLOBAL.BOT_ALIAS,
+        'region': GLOBAL.AWS_REGION,
+      },
+    }
+  }
+});
 
 // Sync Action
-export const fetchMessageSuccess = (answer) => {
-  const body = answer['body-json']
+export const fetchMessageSuccess = (response) => {
+  /*
+  Data Structure:
+
+  dialogState: "ElicitSlot"
+  intentName: "Greeting"
+  message: "Wo Hola! I am Timo. Happy to e-meet you stranger! What is your name?"
+  messageFormat: "PlainText"
+  slotToElicit: "firstName"
+  slots: {firstName: null}
+  */
   const payload = {
-    content: body,
+    content: response,
     key: 'chat',
     sender: 0
   }
@@ -26,22 +50,9 @@ export const fetchMessageSuccess = (answer) => {
 
 // Async Action
 export const fetchMessage = (message) => {
-  return (dispatch) => {
-    const data = {
-      uuid: '12345',
-      message: message
-    }
-    return Axios.post(API_URL, data, { 
-        crossDomain: true,
-        headers: {
-          'Content-Type': 'application/json',
-        }   
-      })
-      .then(response => {
-        dispatch(fetchMessageSuccess(response.data))
-      })
-      .catch(error => {
-        throw (error)
-      })
+  return async (dispatch) => {
+    const response =  await Interactions.send("Quotes", message);
+    console.log (response);
+    dispatch(fetchMessageSuccess(response));
   }
 }

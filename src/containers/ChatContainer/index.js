@@ -16,62 +16,33 @@ import * as GLOBALS from '../../modules/globals'
 import './ChatContainer.css'
 import ActionContainer from '../ActionContainer';
 
-import Amplify, { Interactions } from 'aws-amplify';
-
-Amplify.configure({
-  Auth: {
-    // Use your Amazon Cognito Identity Pool Id
-    identityPoolId: 'eu-west-1:48324b18-ddf4-45ab-a58e-aa877268a32c',
-    region: 'eu-west-1'
-  },
-  Interactions: {
-    bots: {
-      "Quotes": {
-        "name": "Quotes",
-        "alias": "$LATEST",
-        "region": "eu-west-1",
-      },
-    }
-  }
-});
-
 class ChatContainer extends Component {
 
-  // componentDidMount() {
-  //   const { fetchMessage, fetchRandom, id } = this.props
-  //   switch (id) {
-  //     case 'chat':
-  //       fetchMessage('Hola Timon')
-  //       break
-  //     case 'random':
-  //       fetchRandom()
-  //       break
-  //     default:
-  //       break
-  //   }
-  // }
-
-  async componentDidMount() {
-    let userInput = "Hola Timo";
-
-    // Provide a bot name and user input
-    const response =  await Interactions.send("Quotes", userInput);
-
-    // Log chatbot response
-    console.log (response.message);
+  componentDidMount() {
+    const { fetchMessage, fetchRandom, id } = this.props
+    switch (id) {
+      case 'chat':
+        fetchMessage('Hola Timo')
+        break
+      case 'random':
+        fetchRandom()
+        break
+      default:
+        break
+    }
   }
 
-  // componentDidUpdate(prevProps) {
-  //   const { id, chat } = this.props
-  //   const currentChatLength = chat && chat[id] && chat[id].length
-  //   const prevChatLength = prevProps.chat && prevProps.chat[id] && prevProps.chat[id].length
-  //   if (prevChatLength < currentChatLength) {
-  //     // make sure that display scrolls to bottom when new message arrived
-  //     animateScroll.scrollToBottom({
-  //       duration: 0
-  //     })
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    const { id, chat } = this.props
+    const currentChatLength = chat && chat[id] && chat[id].length
+    const prevChatLength = prevProps.chat && prevProps.chat[id] && prevProps.chat[id].length
+    if (prevChatLength < currentChatLength) {
+      // make sure that display scrolls to bottom when new message arrived
+      animateScroll.scrollToBottom({
+        duration: 0
+      })
+    }
+  }
 
   render() {
     // chat object should be key value store
