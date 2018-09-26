@@ -2,9 +2,9 @@
 
 const awsmobile =  {
     "aws_project_region": "eu-west-1",
-    "aws_content_delivery_bucket": "quotesamplify-20180924212037--hostingbucket",
+    "aws_content_delivery_bucket": "quotesamplify-20180925235300--hostingbucket",
     "aws_content_delivery_bucket_region": "eu-west-1",
-    "aws_content_delivery_url": "http://quotesamplify-20180924212037--hostingbucket.s3-website-eu-west-1.amazonaws.com"
+    "aws_content_delivery_url": "http://quotesamplify-20180925235300--hostingbucket.s3-website-eu-west-1.amazonaws.com"
 };
 
 

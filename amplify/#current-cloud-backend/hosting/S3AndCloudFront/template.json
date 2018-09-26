@@ -6,7 +6,7 @@
             "Type": "AWS::S3::Bucket",
             "DeletionPolicy": "Retain",
             "Properties": {
-                "BucketName": "quotesamplify-20180924212037--hostingbucket",
+                "BucketName": "quotesamplify-20180925235300--hostingbucket",
                 "AccessControl": "PublicRead",
                 "WebsiteConfiguration": {
                     "IndexDocument": "index.html",

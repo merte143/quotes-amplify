@@ -81,7 +81,7 @@
 		"hostingS3AndCloudFront": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180924211931-deployment/amplify-cfn-templates/hosting/template.json",
+				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/hosting/template.json",
 				"Parameters": {}
 			}
 		}
