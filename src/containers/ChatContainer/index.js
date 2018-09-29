@@ -11,6 +11,7 @@ import {
 } from '../../actions/chatPosition'
 import { fetchRandom } from '../../actions/random'
 import MessageElement from '../../components/MessageElement'
+import MultipleMessages from '../../components/MultipleMessages'
 import { animateScroll } from 'react-scroll'
 import * as GLOBALS from '../../modules/globals'
 import './ChatContainer.css'
@@ -45,29 +46,28 @@ class ChatContainer extends Component {
   }
 
   render() {
-    // chat object should be key value store
-    // needs to know which API to communicate with
     const { chat, id, chatPosition } = this.props
     const activeChat = chat[id]
     // show only the active part of the chat
     const partChat = activeChat.slice(chatPosition.start, chatPosition.end)
     // make buttons dynamic
     const latestMessage = activeChat.length > 0 && activeChat[activeChat.length - 1]
-    const slotToElicit = latestMessage.content && latestMessage.content.slotToElicit
-    const responseCard = latestMessage.content && latestMessage.content.responseCard
+    const { slotToElicit, responseCard } = latestMessage && latestMessage.content
+    // use 'prop' in obj to check whether obj has own or inherited property
     const genericAttachments = responseCard && responseCard.genericAttachments
+
     const responseButtons = genericAttachments && genericAttachments[0].buttons
     // check for multiple elements
     // TODO: Find a better way to get that info
-    let multipleMessages = ''
+    let multiMessages = ''
     try {
-      multipleMessages = JSON.parse(partChat[0].content.message)
+      multiMessages = JSON.parse(partChat[0].content.message)
     } catch (error) {
-      // do nothing
+      console.log(error)
     }
-    const hasMultipleElements = typeof multipleMessages === 'object'
+    const hasMultipleElements = typeof multiMessages === 'object'
     const renderTimeAllMessages = hasMultipleElements 
-        ? (GLOBALS.ANIMATION_INTERVALL + 1000) * multipleMessages.messages.length
+        ? (GLOBALS.ANIMATION_INTERVALL + 1000) * multiMessages.messages.length
         : GLOBALS.ANIMATION_INTERVALL
 
     return (
@@ -79,25 +79,18 @@ class ChatContainer extends Component {
           <div className='chat'>
             { partChat && partChat.length > 0 && partChat.map((chatElement, i) => {
               // if message contains more elements, render accordingly
-              let multipleMessages = ''
+              let multiMessages = ''
               try {
-                multipleMessages = JSON.parse(chatElement.content.message)
+                multiMessages = JSON.parse(chatElement.content.message)
               } catch (error) {
-                // do nothing
+                console.log(error)
               }
-              if(typeof multipleMessages === 'object') {
+              if(typeof multiMessages === 'object') {
+                // @TODO: Need to unmount the <messages> components after user actions
                 return (
-                  multipleMessages.messages && multipleMessages.messages.map((singleMessage, i) => {
-                    return (
-                      <MessageElement
-                        key={ i }
-                        text={ singleMessage.value }
-                        sender={ 0 }
-                        animationDelay={ i * GLOBALS.ANIMATION_INTERVALL + (i * 1500)  }
-                        animationLength={ GLOBALS.ANIMATION_INTERVALL /* * singleMessage.value.length */ }
-                      />
-                    )
-                  })  
+                  <MultipleMessages
+                    messages={ multiMessages.messages }
+                  />
                 )                
               } else {
                 return (
@@ -145,6 +138,7 @@ class ChatContainer extends Component {
     const { fetchMessage, fetchRandom, appendToChat, id } = this.props
     switch (id) {
       case 'chat':
+        // @TODO: Unmount messages components here?
         appendToChat({'message': answer}, id, 1)
         setTimeout(() => {
           fetchMessage(answer)
