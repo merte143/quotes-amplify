@@ -15,22 +15,24 @@ export default class MessageElement extends Component {
   }
 
   componentDidMount() {
-    const { animationDelay, animationLength  } = this.props
-    // start animation
-    const timer1 = setTimeout(() => {
-      this.setState( {animateBubble: 1 } )
-    }, animationDelay)
-    this.setState({ timerId1: timer1 })
-    // show the message
-    const timer2 = setTimeout(() => {
-      this.setState( {animateBubble: 2 } )
-    }, animationDelay + animationLength)
-    this.setState({ timerId2: timer2 })
+    // @TODO: Refactor and manage the animation in a different way (in render)
+    // const { animationDelay, animationLength  } = this.props
+    // // start animation
+    // const timer1 = setTimeout(() => {
+    //   this.setState( {animateBubble: 1 } )
+    // }, animationDelay)
+    // this.setState({ timerId1: timer1 })
+    // // show the message
+    // const timer2 = setTimeout(() => {
+    //   this.setState( {animateBubble: 2 } )
+    // }, animationDelay + animationLength)
+    // this.setState({ timerId2: timer2 })
+    this.setState( {animateBubble: 2 } )
   }
 
   componentWillUnmount() {
-    clearTimeout(this.state.timerId1)
-    clearTimeout(this.state.timerId2)
+    // clearTimeout(this.state.timerId1)
+    // clearTimeout(this.state.timerId2)
   }
 
   render () {

@@ -86,12 +86,11 @@ class ChatContainer extends Component {
                 console.log(error)
               }
               if(typeof multiMessages === 'object') {
-                // @TODO: Need to unmount the <messages> components after user actions
                 return (
                   <MultipleMessages
                     messages={ multiMessages.messages }
                   />
-                )                
+                )
               } else {
                 return (
                   <MessageElement
