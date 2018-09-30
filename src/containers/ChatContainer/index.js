@@ -88,6 +88,7 @@ class ChatContainer extends Component {
               if(typeof multiMessages === 'object') {
                 return (
                   <MultipleMessages
+                    key={ i + chatPosition.start }
                     messages={ multiMessages.messages }
                   />
                 )

@@ -19,17 +19,38 @@ export default class MultipleMessages extends Component {
   componentDidMount() {
     const { messages } = this.props
     const { renderingList } = this.state
+    // render one message every second
     const intervalId = setInterval(() => {
-      renderingList.push(messages[this.state.currentCount])
-      this.setState({ currentCount: this.state.currentCount + 1 })
       // clear interval once all messages are rendered
       if (this.state.currentCount >= messages.length) {
         clearInterval(this.state.intervalId)
+      } else {
+        renderingList.push(messages[this.state.currentCount])
+        this.setState({ currentCount: this.state.currentCount + 1 })
       }
     }, 1000)
     this.setState({intervalId: intervalId})
-    // this parent component should run a timer and every x seconds it should add 
-    // the next item to an array that is used for rendering the elements
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.messages !== this.props.messages) {
+      // new messages coming in.. empty renderingList
+      console.log(newProps)
+      // this.setState({ renderingList: [] })
+      // this.setState({ currentCount: 0 })
+      // const { messages } = newProps
+      // const { renderingList } = this.state
+      // const intervalId = setInterval(() => {
+      //   // clear interval once all messages are rendered
+      //   if (this.state.currentCount >= messages.length) {
+      //     clearInterval(this.state.intervalId)
+      //   } else {
+      //     renderingList.push(messages[this.state.currentCount])
+      //     this.setState({ currentCount: this.state.currentCount + 1 })
+      //   }
+      // }, 1000)
+      // this.setState({intervalId: intervalId})
+    }
   }
 
   componentWillUnmount() {
