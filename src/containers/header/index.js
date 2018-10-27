@@ -26,6 +26,7 @@ class Header extends Component {
         >
           <Button bsStyle='link' onClick={ () => this.goToPage('/') } className="menu-item">Home</Button>
           <Button bsStyle='link' onClick={ () => this.goToPage('/random') } className="menu-item">Random</Button>
+          <Button bsStyle='link' onClick={ () => this.goToPage('/member') } className="menu-item">Member</Button>
         </Menu>
       </div>
     )
