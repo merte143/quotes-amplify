@@ -4,7 +4,11 @@ const awsmobile =  {
     "aws_project_region": "eu-west-1",
     "aws_content_delivery_bucket": "quotesamplify-20180925235300--hostingbucket",
     "aws_content_delivery_bucket_region": "eu-west-1",
-    "aws_content_delivery_url": "http://quotesamplify-20180925235300--hostingbucket.s3-website-eu-west-1.amazonaws.com"
+    "aws_content_delivery_url": "http://quotesamplify-20180925235300--hostingbucket.s3-website-eu-west-1.amazonaws.com",
+    "aws_cognito_identity_pool_id": "eu-west-1:6c1ed44e-8051-444f-b137-d4e33599a74c",
+    "aws_cognito_region": "eu-west-1",
+    "aws_user_pools_id": "eu-west-1_Rh2OTlXrI",
+    "aws_user_pools_web_client_id": "8i3tn5oamioaqm4d8ndgkbu28"
 };
 
 
