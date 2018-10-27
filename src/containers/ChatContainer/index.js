@@ -9,7 +9,6 @@ import {
   nextChatPosition,
   prevChatPosition
 } from '../../actions/chatPosition'
-import { fetchRandom } from '../../actions/random'
 import MessageElement from '../../components/MessageElement'
 import MultipleMessages from '../../components/MultipleMessages'
 import { animateScroll } from 'react-scroll'
@@ -20,13 +19,10 @@ import ActionContainer from '../ActionContainer';
 class ChatContainer extends Component {
 
   componentDidMount() {
-    const { fetchMessage, fetchRandom, id } = this.props
+    const { fetchMessage, id } = this.props
     switch (id) {
       case 'chat':
         fetchMessage('Hola Timo')
-        break
-      case 'random':
-        fetchRandom()
         break
       default:
         break
@@ -145,9 +141,6 @@ class ChatContainer extends Component {
           fetchMessage(answer)
         }, 1000)
         break
-      case 'random':
-        fetchRandom()
-        break
       default:
         break
     }
@@ -164,7 +157,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchMessage,
   appendToChat,
-  fetchRandom,
   setChatPosition,
   nextChatPosition,
   prevChatPosition

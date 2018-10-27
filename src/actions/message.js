@@ -21,16 +21,6 @@ Amplify.configure({
 
 // Sync Action
 export const fetchMessageSuccess = (response) => {
-  /*
-  Data Structure:
-
-  dialogState: "ElicitSlot"
-  intentName: "Greeting"
-  message: "Wo Hola! I am Timo. Happy to e-meet you stranger! What is your name?"
-  messageFormat: "PlainText"
-  slotToElicit: "firstName"
-  slots: {firstName: null}
-  */
   const payload = {
     content: response,
     key: 'chat',

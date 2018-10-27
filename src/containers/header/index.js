@@ -26,7 +26,7 @@ class Header extends Component {
           className='hamburger-menu'
         >
           <Link onClick={ () => this.closeMenu() } to='/' className="menu-item">Home</Link>
-          <Link onClick={ () => this.closeMenu() } to='/random' className="menu-item">Random</Link>
+          <Link onClick={ () => this.closeMenu() } to='/quote' className="menu-item">Quote</Link>
           <Link onClick={ () => this.closeMenu() } to='/member' className="menu-item">Member</Link>
         </Menu>
       </div>

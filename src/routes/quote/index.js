@@ -1,21 +1,20 @@
 import React from 'react'
 import { Component } from 'react'
-import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { Grid, Row, Col } from 'react-bootstrap'
-import ChatContainer from '../../containers/ChatContainer'
+import QuoteContainer from '../../containers/QuoteContainer'
 
-class Random extends Component {
+class Quote extends Component {
 
   render() {
+    console.log('quote')
     return (
       <Grid>
         <Row>
           <Col xs={ 12 }>
-            <ChatContainer
-              id='random'
-            />
+            <QuoteContainer />
           </Col>
         </Row>
       </Grid>
@@ -23,9 +22,7 @@ class Random extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  chat: state.chat
-})
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   changePage: (path) => push(path)
@@ -34,4 +31,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Random)
+)(Quote)
