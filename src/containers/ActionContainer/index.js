@@ -33,7 +33,7 @@ export default class ActionContainer extends Component {
     if (responseButtons !== nextProps.responseButtons) {
       this.setState({ changed: true })
     }
-    if ( this.state.changed && animationDelay !== nextProps.animationDelay) {
+    if ( this.state.changed) {
       setTimeout(() => {
         this.setState( { show: true } )
       }, nextProps.animationDelay)
@@ -45,9 +45,7 @@ export default class ActionContainer extends Component {
     const { slotToElicit, showChat, nextChat, prevChat, responseButtons } = this.props
     const { show } = this.state
     return (
-      <div
-        className={ classnames('action-container', show && 'show') }
-      >
+      <div className={ classnames('action-container', show && 'show') }>
         { slotToElicit ? (
           <form>
             <FormGroup

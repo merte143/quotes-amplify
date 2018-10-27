@@ -54,7 +54,7 @@ class ChatContainer extends Component {
     // show only the active part of the chat
     const partChat = activeChat.slice(chatPosition.start, chatPosition.end)
 
-    // get message and response card data
+    // get latest message and response card data
     const latestMessage = activeChat.length > 0 && activeChat[activeChat.length - 1]
     const { slotToElicit, responseCard } = latestMessage && latestMessage.content
     const genericAttachments = responseCard && responseCard.genericAttachments
