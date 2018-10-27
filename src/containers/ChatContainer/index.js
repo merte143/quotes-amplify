@@ -47,45 +47,36 @@ class ChatContainer extends Component {
 
   render() {
     const { chat, id, chatPosition } = this.props
+
+    // choose the chat based on the id
     const activeChat = chat[id]
+
     // show only the active part of the chat
     const partChat = activeChat.slice(chatPosition.start, chatPosition.end)
-    // make buttons dynamic
+
+    // get message and response card data
     const latestMessage = activeChat.length > 0 && activeChat[activeChat.length - 1]
     const { slotToElicit, responseCard } = latestMessage && latestMessage.content
-    // use 'prop' in obj to check whether obj has own or inherited property
     const genericAttachments = responseCard && responseCard.genericAttachments
-
     const responseButtons = genericAttachments && genericAttachments[0].buttons
-    // check for multiple elements
-    // TODO: Find a better way to get that info
-    let multiMessages = ''
-    try {
-      multiMessages = JSON.parse(partChat[0].content.message)
-    } catch (error) {
-      console.log(error)
-    }
-    const hasMultipleElements = typeof multiMessages === 'object'
-    const renderTimeAllMessages = hasMultipleElements 
-        ? (GLOBALS.ANIMATION_INTERVALL + 1000) * multiMessages.messages.length
-        : GLOBALS.ANIMATION_INTERVALL
+    
+    // set animation time
+    const renderTimeAllMessages = GLOBALS.ANIMATION_INTERVALL
 
     return (
       <div className='chat-container'>
+
         <div className='bot-profile'>
           <img src={ GLOBALS.ASSETS_URL + 'author/timo.jpg' } alt='bot' />
         </div>
+
         <div className='wrapper'>
           <div className='chat'>
             { partChat && partChat.length > 0 && partChat.map((chatElement, i) => {
-              // if message contains more elements, render accordingly
-              let multiMessages = ''
-              try {
-                multiMessages = JSON.parse(chatElement.content.message)
-              } catch (error) {
-                console.log(error)
-              }
-              if(typeof multiMessages === 'object') {
+
+              // multiMessages is null if its a simple message
+              let multiMessages = this.secureParseJSON(chatElement.content.message)
+              if(multiMessages !== null) {
                 return (
                   <MultipleMessages
                     key={ i + chatPosition.start }
@@ -99,13 +90,14 @@ class ChatContainer extends Component {
                     text={ chatElement.content.message }
                     sender={ chatElement.sender }
                     animationDelay={ 0 }
-                    animationLength={ GLOBALS.ANIMATION_INTERVALL /* * chatElement.content.message.length */ }
+                    animationLength={ GLOBALS.ANIMATION_INTERVALL }
                   />
                 )
               }
             }) }
           </div>    
         </div>
+
         <ActionContainer
           slotToElicit={ slotToElicit }
           sendAnswer={ (input) => this.sendAnswer(input) }
@@ -115,8 +107,18 @@ class ChatContainer extends Component {
           responseButtons={ responseButtons }
           animationDelay={ renderTimeAllMessages }
         />
+
       </div>
     )
+  }
+
+  secureParseJSON(stringObject) {
+    try {
+      const jsonObject = JSON.parse(stringObject)
+      return jsonObject
+    } catch (error) {
+      return null
+    }
   }
 
   showChat(start, end) {
@@ -138,7 +140,6 @@ class ChatContainer extends Component {
     const { fetchMessage, fetchRandom, appendToChat, id } = this.props
     switch (id) {
       case 'chat':
-        // @TODO: Unmount messages components here?
         appendToChat({'message': answer}, id, 1)
         setTimeout(() => {
           fetchMessage(answer)
