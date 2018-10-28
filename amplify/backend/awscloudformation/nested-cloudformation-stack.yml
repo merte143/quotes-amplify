@@ -91,7 +91,7 @@
 				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/auth/cognito7f35fee8-cloudformation-template.yml",
 				"Parameters": {
 					"identityPoolName": "cognito7f35fee8_identitypool_7f35fee8",
-					"allowUnauthenticatedIdentities": false,
+					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
 					"lambdaLogPolicy": "cognito7f35fee8_lambda_log_policy",
 					"openIdLambdaRoleName": "cognito7f35fee8_openid_lambda_role",
@@ -132,6 +132,57 @@
 					"authRoleArn": "arn:aws:iam::713457383886:role/quotesamplify-20180925234136-authRole",
 					"resourceName": "cognito7f35fee8",
 					"authSelections": "identityPoolAndUserPool"
+				}
+			}
+		},
+		"storagequotes": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/storage/quotes-cloudformation-template.json",
+				"Parameters": {
+					"tableName": "quotes",
+					"partitionKeyName": "id",
+					"partitionKeyType": "S"
+				}
+			}
+		},
+		"functionquotesamplify09795943": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/function/quotesamplify09795943-cloudformation-template.json",
+				"Parameters": {
+					"storagequotesName": {
+						"Fn::GetAtt": [
+							"storagequotes",
+							"Outputs.Name"
+						]
+					},
+					"storagequotesArn": {
+						"Fn::GetAtt": [
+							"storagequotes",
+							"Outputs.Arn"
+						]
+					}
+				}
+			}
+		},
+		"apiquoteapi": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/api/quoteapi-cloudformation-template.json",
+				"Parameters": {
+					"functionquotesamplify09795943Name": {
+						"Fn::GetAtt": [
+							"functionquotesamplify09795943",
+							"Outputs.Name"
+						]
+					},
+					"functionquotesamplify09795943Arn": {
+						"Fn::GetAtt": [
+							"functionquotesamplify09795943",
+							"Outputs.Arn"
+						]
+					}
 				}
 			}
 		}
