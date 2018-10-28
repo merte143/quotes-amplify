@@ -1,0 +1,36 @@
+{
+    "paths": [
+        {
+            "name": "/quotes",
+            "lambdaFunction": "quotesamplify09795943",
+            "privacy": {
+                "protected": true,
+                "auth": "rw",
+                "unauth": "r"
+            }
+        }
+    ],
+    "resourceName": "quoteapi",
+    "apiName": "quotesamplify63cf0ab7",
+    "functionArns": [
+        {
+            "lambdaFunction": "quotesamplify09795943"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "quotesamplify-20180925234136-authRole",
+        "unAuthRoleName": "quotesamplify-20180925234136-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "quotesamplify09795943",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
