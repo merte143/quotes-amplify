@@ -1,7 +1,9 @@
 @import "../../variables.scss";
 
 .hamburger-menu {
-  
+  .menu-item {
+    color: $color-white;
+  }
 }
 
 /* Position and sizing of burger button */

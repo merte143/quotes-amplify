@@ -2,6 +2,9 @@
 /* Colors */
 /* Cloudfront */
 /* Main margins */
+.hamburger-menu .menu-item {
+  color: #FFF; }
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
