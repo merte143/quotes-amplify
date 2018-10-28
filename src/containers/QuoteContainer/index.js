@@ -5,17 +5,17 @@ import { bindActionCreators } from 'redux'
 import { fetchQuote } from '../../actions/quote'
 import * as GLOBALS from '../../modules/globals'
 import './QuoteContainer.css'
+import { getRandomQuote } from '../../actions/quote'
 
 class QuoteContainer extends Component {
 
   componentDidMount() {
-    const { fetchQuote } = this.props
-    fetchQuote()
+    const { getRandomQuote } = this.props
+    getRandomQuote()
   }
 
   render() {
     const { quote } = this.props
-    console.log('quote container')
     return (
       <div className='quote-container'>
 
@@ -25,7 +25,7 @@ class QuoteContainer extends Component {
 
         <div className='wrapper'>
           <div className='quote'>
-            { quote && quote.data && JSON.stringify(quote.data[0]) }
+            { JSON.stringify(quote) }
           </div>    
         </div>
 
@@ -39,7 +39,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchQuote
+  getRandomQuote
 }, dispatch)
 
 export default connect(

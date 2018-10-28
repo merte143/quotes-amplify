@@ -92,6 +92,33 @@ export const getQuote = (id) => {
   }
 }
 
+/* GET Random Quote */
+
+// Sync Action
+export const getRandomQuoteSuccess = (quote) => {
+  const payload = {
+    quote
+  }
+  return (dispatch) => {
+    dispatch({
+      type: 'SET_QUOTE',
+      payload
+    })
+  }
+}
+
+// Async Action
+export const getRandomQuote = () => {
+  console.log('getting random quote..')    
+
+  return async (dispatch) => {
+    console.log('calling api');
+    const response = await API.get('quoteapi', '/quotes/object/1');
+    console.log(JSON.stringify(response, null, 2));
+    dispatch(getRandomQuoteSuccess(response))
+  }
+}
+
 // @TODO: Get all quotes
 // list = async () => {
 //   console.log('calling api');
