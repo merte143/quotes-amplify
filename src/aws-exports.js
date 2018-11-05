@@ -12,6 +12,10 @@ const awsmobile =  {
     "aws_dynamodb_all_tables_region": "eu-west-1",
     "aws_dynamodb_table_schemas": [
         {
+            "tableName": "content",
+            "region": "eu-west-1"
+        },
+        {
             "tableName": "quotes",
             "region": "eu-west-1"
         }

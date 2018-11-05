@@ -6,7 +6,7 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 const AWS = require('aws-sdk'),
-      uuid = require('uuid')
+      uuid = require('uuid/v4')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var bodyParser = require('body-parser')
 var express = require('express')
@@ -18,10 +18,10 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 let tableName = "quotes";
 
 const userIdPresent = false; // TODO: update in case is required to use that definition
-const partitionKeyName = "id";
+const partitionKeyName = "category";
 const partitionKeyType = "S";
-const sortKeyName = "";
-const sortKeyType = "";
+const sortKeyName = "sortUuid";
+const sortKeyType = "S";
 const hasSortKey = sortKeyName !== "";
 const path = "/quotes";
 const UNAUTH = 'UNAUTH';
@@ -54,6 +54,7 @@ const convertUrlType = (param, type) => {
  ********************************/
 
 app.get(path + hashKeyPath, function(req, res) {
+
   var condition = {}
   condition[partitionKeyName] = {
     ComparisonOperator: 'EQ'
@@ -88,6 +89,7 @@ app.get(path + hashKeyPath, function(req, res) {
  *****************************************/
 
 app.get(path + '/object' + hashKeyPath + sortKeyPath, function(req, res) {
+
   var params = {};
   if (userIdPresent && req.apiGateway) {
     params[partitionKeyName] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
@@ -120,6 +122,67 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, function(req, res) {
         res.json(data.Item);
       } else {
         res.json(data) ;
+      }
+    }
+  });
+});
+
+/*****************************************
+ * HTTP Get method for get random object *
+ *****************************************/
+
+ app.get(path + '/random' + hashKeyPath, function(req, res) {
+  // returns a random value of the desired hashkey
+  var params = {};
+
+  if (userIdPresent && req.apiGateway) {
+    params[partitionKeyName] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
+  } else {
+    params[partitionKeyName] = req.params[partitionKeyName];
+    try {
+      params[partitionKeyName] = convertUrlType(req.params[partitionKeyName], partitionKeyType);
+    } catch(err) {
+      res.json({error: 'Wrong column type ' + err});
+    }
+  }
+
+  // create a random uuid as rangeKey to compare to sortKey
+  var randomRangeKey = uuid();
+
+  // prepare params for query
+  var params = {
+    ExpressionAttributeValues: {
+      ':s': randomRangeKey,
+      ':p': params[partitionKeyName]
+    },
+    KeyConditionExpression: 'category = :p and sortUuid > :s',
+    TableName: tableName,
+    Limit: 1
+  };
+  console.log(params);
+
+  // query db
+  dynamodb.query(params, function(err, data) {
+    if (err) {
+      res.json({error: err, url: req.url, body: req.body});
+    } else {
+      // check if query returned results and if not compare from the other side
+      if (data.Items.length > 0) {
+        var result = data.Items[0];
+        res.json({success: 'get random call succeed!', url: req.url, data: result})
+      } else {
+        // check if query returned no result and compare from the other side
+        params.KeyConditionExpression = 'category = :p and sortUuid >= :s';
+        dynamodb.query(params, function(err, data) {
+          if (err) {
+            res.json({error: err, url: req.url, body: req.body});
+          } else {
+            if (data.Items.length > 0) {
+              var result = data.Items[0];
+              res.json({success: 'get random call succeed via randomKey > sortKey!', url: req.url, data: result})
+            }
+          }
+        });
       }
     }
   });
@@ -160,7 +223,7 @@ app.post(path, function(req, res) {
   }
 
   let newItem = req.body;
-  newItem.id = uuid.v1();
+  newItem.sortUuid = uuid();
 
   let putItemParams = {
     TableName: tableName,

@@ -1,0 +1,7 @@
+{
+    "tableName": "content",
+    "partitionKeyName": "type",
+    "partitionKeyType": "S",
+    "sortKeyName": "sortId",
+    "sortKeyType": "S"
+}

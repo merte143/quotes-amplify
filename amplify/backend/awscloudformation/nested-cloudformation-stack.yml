@@ -135,14 +135,29 @@
 				}
 			}
 		},
+		"storagecontent": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/storage/content-cloudformation-template.json",
+				"Parameters": {
+					"tableName": "content",
+					"partitionKeyName": "type",
+					"partitionKeyType": "S",
+					"sortKeyName": "sortId",
+					"sortKeyType": "S"
+				}
+			}
+		},
 		"storagequotes": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/storage/quotes-cloudformation-template.json",
 				"Parameters": {
 					"tableName": "quotes",
-					"partitionKeyName": "id",
-					"partitionKeyType": "S"
+					"partitionKeyName": "category",
+					"partitionKeyType": "S",
+					"sortKeyName": "sortUuid",
+					"sortKeyType": "S"
 				}
 			}
 		},

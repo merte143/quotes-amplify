@@ -54,7 +54,7 @@ export const postQuote = (quote) => {
     console.log('calling api');
     const options = {
       body: {
-        id: '1',
+        category: 'quote',
         text: quote,
         author: 'timo'
       }
@@ -113,7 +113,8 @@ export const getRandomQuote = () => {
 
   return async (dispatch) => {
     console.log('calling api');
-    const response = await API.get('quoteapi', '/quotes/object/1');
+    // last url part = type / hashKey in table
+    const response = await API.get('quoteapi', '/quotes/random/quote');
     console.log(JSON.stringify(response, null, 2));
     dispatch(getRandomQuoteSuccess(response))
   }
