@@ -7,6 +7,7 @@ import { postQuote } from '../../actions/quote'
 import QuoteForm from '../../components/QuoteForm'
 import AuthBar from '../../components/AuthBar'
 import { Authenticator } from 'aws-amplify-react'
+import Quotes from '../../modules/themes/Quotes'
 
 // add authentication to app
 import Amplify, { Auth }from 'aws-amplify';
@@ -23,7 +24,9 @@ class Member extends Component {
       <Grid>
         <Row>
           <Col col-xs='12'>
-          <Authenticator>
+          <Authenticator
+            theme={ Quotes }
+          >
             <AuthBar />
             <QuoteForm
               postQuote={ (quote) => postQuote(quote) }
