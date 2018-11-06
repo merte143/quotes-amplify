@@ -15,24 +15,7 @@ export default class MessageElement extends Component {
   }
 
   componentDidMount() {
-    // const { animationDelay, animationLength  } = this.props
-    // // start animation
-    // this.setState( {animateBubble: 1 } )
-    // const timer1 = setTimeout(() => {
-    //   this.setState( {animateBubble: 2 } )
-    // }, 1000)
-    // this.setState({ timerId1: timer1 })
-    // // show the message
-    // const timer2 = setTimeout(() => {
-    //   this.setState( {animateBubble: 2 } )
-    // }, 1000)
-    // this.setState({ timerId2: timer2 })
     this.setState( {animateBubble: 2 } )
-  }
-
-  componentWillUnmount() {
-    //clearTimeout(this.state.timerId1)
-    // clearTimeout(this.state.timerId2)
   }
 
   render () {

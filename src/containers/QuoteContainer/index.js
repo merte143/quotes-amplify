@@ -2,10 +2,10 @@ import * as React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fetchQuote } from '../../actions/quote'
 import * as GLOBALS from '../../modules/globals'
 import './QuoteContainer.css'
 import { getRandomQuote } from '../../actions/quote'
+import MessageElement from '../../components/MessageElement'
 
 class QuoteContainer extends Component {
 
@@ -16,6 +16,7 @@ class QuoteContainer extends Component {
 
   render() {
     const { quote } = this.props
+    const text = quote && quote.data && quote.data.text
     return (
       <div className='quote-container'>
 
@@ -25,7 +26,10 @@ class QuoteContainer extends Component {
 
         <div className='wrapper'>
           <div className='quote'>
-            { JSON.stringify(quote) }
+            <MessageElement
+              text={ text }
+              sender={ 0 }
+            />
           </div>    
         </div>
 
