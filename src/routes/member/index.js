@@ -5,11 +5,12 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { postQuote } from '../../actions/quote'
 import QuoteForm from '../../components/QuoteForm'
+import AuthBar from '../../components/AuthBar'
+import { Authenticator } from 'aws-amplify-react'
 
 // add authentication to app
-import Amplify from 'aws-amplify';
+import Amplify, { Auth }from 'aws-amplify';
 import aws_exports from '../../aws-exports.js';
-import { withAuthenticator } from 'aws-amplify-react';
 
 Amplify.configure(aws_exports);
 
@@ -22,9 +23,12 @@ class Member extends Component {
       <Grid>
         <Row>
           <Col col-xs='12'>
+          <Authenticator>
+            <AuthBar />
             <QuoteForm
               postQuote={ (quote) => postQuote(quote) }
             />
+          </Authenticator>
           </Col>
         </Row>
       </Grid>
@@ -41,9 +45,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   postQuote
 }, dispatch)
 
-const connectMember = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Member)
-
-export default withAuthenticator(connectMember, true);

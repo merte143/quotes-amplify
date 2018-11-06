@@ -14,8 +14,11 @@ export default class QuoteForm extends Component {
   }
 
   render () {
-    const { postQuote } = this.props
+    const { postQuote, authState } = this.props
     const { value } = this.state
+    // hide the container if user is not signed in
+    console.log(authState)
+    if (authState !== 'signedIn') { return null }
     return (
       <div className='quote-form'>
         <FormGroup controlId="quoteFormTextArea">
