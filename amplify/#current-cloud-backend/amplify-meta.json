@@ -51,25 +51,6 @@
 		}
 	},
 	"storage": {
-		"content": {
-			"service": "DynamoDB",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/storage/content-cloudformation-template.json",
-				"logicalId": "storagecontent"
-			},
-			"lastPushTimeStamp": "2018-11-05T22:52:51.244Z",
-			"output": {
-				"PartitionKeyName": "type",
-				"SortKeyName": "sortId",
-				"SortKeyType": "S",
-				"Region": "eu-west-1",
-				"Arn": "arn:aws:dynamodb:eu-west-1:713457383886:table/content",
-				"PartitionKeyType": "S",
-				"Name": "content"
-			},
-			"lastPushDirHash": "1B8cgj4HoIE4/jCJG3PqOXDTofM="
-		},
 		"quotes": {
 			"service": "DynamoDB",
 			"providerPlugin": "awscloudformation",

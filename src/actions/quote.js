@@ -7,31 +7,6 @@ import { API } from 'aws-amplify';
 // API URL
 const API_URL = GLOBAL.API_URL + '/random'
 
-// Sync Action
-export const fetchQuoteSuccess = (quote) => {
-  const payload = {
-    quote: quote
-  }
-  return (dispatch) => {
-    dispatch({
-      type: 'SET_QUOTE',
-      payload
-    })
-  }
-}
-
-// Async Action
-export const fetchQuote = () => {
-  console.log('fetching quote')
-  return async (dispatch) => {
-    const response = await Axios.get(API_URL, { crossDomain: true })
-    console.log (response)
-    dispatch(fetchQuoteSuccess(response));
-  }
-}
-
-// @TODO: Remove above code and remove the old static api
-
 /* POST Quote */
 
 // Sync Action
@@ -82,11 +57,11 @@ export const getQuoteSuccess = (quote) => {
 
 // Async Action
 export const getQuote = (id) => {
-  console.log('getting quote with id ' + id)    
+  console.log('getting quote with sortId ' + id)    
 
   return async (dispatch) => {
     console.log('calling api');
-    const response = await API.get('quoteapi', '/quotes/object/' + id);
+    const response = await API.get('quoteapi', '/quotes/object/quote/' + id);
     console.log(JSON.stringify(response, null, 2));
     dispatch(getQuoteSuccess(response))
   }
