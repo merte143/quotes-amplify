@@ -1,6 +1,3 @@
-import React from 'react';
-import FontAwesome from 'react-fontawesome'
-
 export const Container = {}
 
 export const NavBar = {}

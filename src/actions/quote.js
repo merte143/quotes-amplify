@@ -1,11 +1,5 @@
-import Axios from 'axios'
-import * as GLOBAL from '../modules/globals.js'
-// @TODO: Refactor above and remove if not needed
 // add db access
 import { API } from 'aws-amplify';
-
-// API URL
-const API_URL = GLOBAL.API_URL + '/random'
 
 /* POST Quote */
 

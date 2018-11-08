@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
 import './QuoteForm.css'
-import * as classnames from 'classnames'
 
 export default class QuoteForm extends Component {
 
@@ -15,8 +14,8 @@ export default class QuoteForm extends Component {
   }
 
   render () {
-    const { postQuote, authState, user } = this.props
-    const { value, isSubmitted } = this.state
+    const { authState } = this.props
+    const { isSubmitted } = this.state
     // hide the container if user is not signed in
     if (authState !== 'signedIn') { return null }
     // get name of logged in user and post as author

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
 import './MultipleMessages.css'
-import * as classnames from 'classnames'
 import MessageElement from '../MessageElement'
 import GLOBALS from '../../modules/globals'
 

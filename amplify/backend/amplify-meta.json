@@ -19,7 +19,7 @@
                 "s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/hosting/template.json",
                 "logicalId": "hostingS3AndCloudFront"
             },
-            "lastPushTimeStamp": "2018-11-06T20:35:52.563Z",
+            "lastPushTimeStamp": "2018-11-08T22:55:35.871Z",
             "output": {
                 "S3BucketSecureURL": "https://quotesamplify-20180925235300--hostingbucket.s3.amazonaws.com",
                 "WebsiteURL": "http://quotesamplify-20180925235300--hostingbucket.s3-website-eu-west-1.amazonaws.com",

@@ -15,7 +15,7 @@ class QuoteContainer extends Component {
   }
 
   render() {
-    const { quote, authState } = this.props
+    const { quote } = this.props
     const text = quote && quote.data && quote.data.text
     return (
       <div className='quote-container'>

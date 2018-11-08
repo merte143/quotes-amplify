@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import { Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import { bindActionCreators } from 'redux'
 import { slide as Menu } from 'react-burger-menu'

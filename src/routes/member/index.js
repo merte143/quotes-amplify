@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { postQuote } from '../../actions/quote'
@@ -19,7 +19,7 @@ Amplify.configure(aws_exports);
 class Member extends Component {
 
   render() {
-    const { api, quote, postQuote, unsetUser, user } = this.props
+    const { postQuote, unsetUser, user } = this.props
     return (
       <Grid>
         <Row>

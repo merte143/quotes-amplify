@@ -133,7 +133,7 @@ class ChatContainer extends Component {
   }
 
   sendAnswer(answer) {
-    const { fetchMessage, fetchRandom, appendToChat, id } = this.props
+    const { fetchMessage, appendToChat, id } = this.props
     switch (id) {
       case 'chat':
         appendToChat({'message': answer}, id, 1)

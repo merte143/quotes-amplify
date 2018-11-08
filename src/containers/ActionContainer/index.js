@@ -28,7 +28,7 @@ export default class ActionContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { responseButtons, animationDelay } = this.props
+    const { responseButtons } = this.props
     // show once rerendered
     if (responseButtons !== nextProps.responseButtons) {
       this.setState({ changed: true })

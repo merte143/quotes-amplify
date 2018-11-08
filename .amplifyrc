@@ -10,5 +10,6 @@
             "StackName": "quotesamplify-20180925234136",
             "StackId": "arn:aws:cloudformation:eu-west-1:713457383886:stack/quotesamplify-20180925234136/c7dadad0-c10b-11e8-8a36-50a686336629"
         }
-    }
+    },
+    "publish-ignore": []
 }
