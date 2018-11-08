@@ -17,3 +17,6 @@
   width: 100%; }
   .quote-container .wrapper .quote {
     width: 100%; }
+    .quote-container .wrapper .quote .message-element .message {
+      display: inline-block;
+      float: none; }

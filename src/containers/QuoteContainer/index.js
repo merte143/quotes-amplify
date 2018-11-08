@@ -21,7 +21,7 @@ class QuoteContainer extends Component {
       <div className='quote-container'>
 
         <div className='bot-profile'>
-          <img src={ GLOBALS.ASSETS_URL + 'author/timo.jpg' } alt='bot' />
+          <img src={ GLOBALS.ASSETS_URL + 'author/denkarium.jpg' } alt='bot' />
         </div>
 
         <div className='wrapper'>

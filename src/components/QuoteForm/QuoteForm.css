@@ -3,4 +3,6 @@
 /* Cloudfront */
 /* Main margins */
 .quote-form {
-  margin: 15px; }
+  margin: 60px 20px; }
+  .quote-form textarea {
+    height: 180px; }
