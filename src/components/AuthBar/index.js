@@ -3,6 +3,8 @@ import { Component } from 'react'
 import './AuthBar.css'
 import { Button } from 'react-bootstrap'
 import { Auth }from 'aws-amplify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default class AuthBar extends Component {
 
@@ -12,8 +14,8 @@ export default class AuthBar extends Component {
     if ( authState === 'signedIn' ) {
       return (
         <div className='auth-bar'>
-          <Button onClick={ () => this.signMeOut() }>
-            Logout
+          <Button bsStyle='info' onClick={ () => this.signMeOut() }>
+            <FontAwesomeIcon icon={ faSignOutAlt } /> Logout
           </Button>
         </div>
       )

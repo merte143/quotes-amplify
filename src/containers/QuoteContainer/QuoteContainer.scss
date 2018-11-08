@@ -17,10 +17,13 @@
     width: 100%;
     .quote {
       width: 100%;
-      .message-element .message {
-        display: inline-block;
-        float: none;
-      }
+      .message-element {
+        text-align: center;
+        .message {
+          display: inline-block;
+          float: none;
+        }
+      } 
     }
   }
 }
