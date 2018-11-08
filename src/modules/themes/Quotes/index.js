@@ -13,7 +13,9 @@ export const NavItem = {}
 
 export const NavButton = {}
 
-export const FormContainer = {}
+export const FormContainer = {
+  margin: '30px 0'
+}
 
 export const FormSection = {}
 
@@ -31,9 +33,13 @@ export const ActionRow = {}
 
 export const Input = {}
 
-export const Button = {}
+export const Button = {
+  textTransform: 'none'
+}
 
-export const SignInButton = {}
+export const SignInButton = {
+  textTransform: 'none'
+}
 
 export const Space = {}
 
