@@ -23,7 +23,7 @@ export const postQuoteSuccess = (quote) => {
 }
 
 // Async Action
-export const postQuote = (quote) => {
+export const postQuote = (quote, author) => {
   console.log('posting quote')
   return async (dispatch) => {
     console.log('calling api');
@@ -31,7 +31,7 @@ export const postQuote = (quote) => {
       body: {
         category: 'quote',
         text: quote,
-        author: 'timo'
+        author: author
       }
     }
     const response = await API.post('quoteapi', '/quotes', options);

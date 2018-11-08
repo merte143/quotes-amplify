@@ -23,8 +23,12 @@ export default class AuthBar extends Component {
   }
 
   signMeOut() {
+    const { unsetUser } = this.props
     Auth.signOut()
-      .then(() => window.location.reload())
+      .then(() => {
+        unsetUser()
+        window.location.reload()
+      })
       .catch(err => console.log(err))
   }
 

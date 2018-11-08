@@ -14,11 +14,11 @@ export default class QuoteForm extends Component {
   }
 
   render () {
-    const { postQuote, authState } = this.props
+    const { postQuote, authState, user } = this.props
     const { value } = this.state
     // hide the container if user is not signed in
-    console.log(authState)
     if (authState !== 'signedIn') { return null }
+    // get name of logged in user and post as author
     return (
       <div className='quote-form'>
         <FormGroup controlId="quoteFormTextArea">
@@ -29,7 +29,7 @@ export default class QuoteForm extends Component {
             onChange={ (val) => this.handleChange(val) }
           />
         </FormGroup>
-        <Button onClick={ () => postQuote(value) }>Post now!</Button>
+        <Button onClick={ () => postQuote(value, user.username) }>Post now!</Button>
       </div>
     )
   }

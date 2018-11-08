@@ -4,6 +4,7 @@ import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { postQuote } from '../../actions/quote'
+import { setUser, unsetUser } from '../../actions/user'
 import QuoteForm from '../../components/QuoteForm'
 import AuthBar from '../../components/AuthBar'
 import { Authenticator } from 'aws-amplify-react'
@@ -18,18 +19,21 @@ Amplify.configure(aws_exports);
 class Member extends Component {
 
   render() {
-    const { api, quote, postQuote } = this.props
-    console.log(api)
+    const { api, quote, postQuote, unsetUser, user } = this.props
     return (
       <Grid>
         <Row>
           <Col col-xs='12'>
           <Authenticator
             theme={ Quotes }
+            onStateChange={(authState) => this.setUser(authState)}
           >
-            <AuthBar />
+            <AuthBar
+              unsetUser={ unsetUser }
+            />
             <QuoteForm
-              postQuote={ (quote) => postQuote(quote) }
+              user={ user }
+              postQuote={ (quote, author) => postQuote(quote, author) }
             />
           </Authenticator>
           </Col>
@@ -37,15 +41,30 @@ class Member extends Component {
       </Grid>
     )
   }
+
+  setUser(authState) {
+    const { setUser } = this.props
+    // if the user is signed in, set him in the state
+    if (authState === 'signedIn') {
+      Auth.currentAuthenticatedUser()
+        .then(user => {
+            setUser(user)
+        })
+        .catch(err => console.log(err))
+    }
+  }
 }
 
 const mapStateToProps = state => ({
   api: state.api,
-  quote: state.quote
+  quote: state.quote,
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  postQuote
+  postQuote,
+  setUser,
+  unsetUser
 }, dispatch)
 
 export default connect(
