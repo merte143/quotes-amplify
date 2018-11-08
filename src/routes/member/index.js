@@ -1,86 +1,73 @@
 import React from 'react'
 import { Component } from 'react'
-import { Grid, Row, Col, Button } from 'react-bootstrap'
-import { push } from 'react-router-redux'
+import { Grid, Row, Col } from 'react-bootstrap'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { postQuote } from '../../actions/quote'
+import { setUser, unsetUser } from '../../actions/user'
+import QuoteForm from '../../components/QuoteForm'
+import AuthBar from '../../components/AuthBar'
+import { Authenticator } from 'aws-amplify-react'
+import Quotes from '../../modules/themes/Quotes'
 
 // add authentication to app
-import Amplify from 'aws-amplify';
+import Amplify, { Auth }from 'aws-amplify';
 import aws_exports from '../../aws-exports.js';
-import { withAuthenticator } from 'aws-amplify-react';
-import { Auth } from 'aws-amplify';
-
-// add db access
-import { Storage, API } from 'aws-amplify';
 
 Amplify.configure(aws_exports);
 
 class Member extends Component {
 
-  componentDidMount() {
-    Auth.currentAuthenticatedUser()
-      .then(user => console.log(user))
-      .catch(err => console.log(err))
-
-    let session = Auth.currentSession();
-    console.log(session)
-  }
-
   render() {
-    console.log('hö?')
+    const { postQuote, unsetUser, user } = this.props
     return (
       <Grid>
         <Row>
           <Col col-xs='12'>
-            <h1>Wow, you are logged in.</h1>
-            <p>toll.</p>    
-            <Button onClick={ this.post }>Post</Button>
-            <Button onClick={ this.get }>Get</Button>
-            <Button onClick={ this.list }>List</Button>
+          <Authenticator
+            theme={ Quotes }
+            onStateChange={(authState) => this.setUser(authState)}
+          >
+            <AuthBar
+              unsetUser={ unsetUser }
+            />
+            <QuoteForm
+              user={ user }
+              postQuote={ (quote, author) => postQuote(quote, author) }
+            />
+          </Authenticator>
           </Col>
         </Row>
       </Grid>
     )
   }
 
-  post = async () => {
-    console.log('calling api');
-    const options = {
-      body: {
-        id: '1',
-        text: 'test db',
-        author: 'timo'
-      }
+  setUser(authState) {
+    const { setUser } = this.props
+    // if the user is signed in, set him in the state
+    if (authState === 'signedIn') {
+      Auth.currentAuthenticatedUser()
+        .then(user => {
+            setUser(user)
+        })
+        .catch(err => console.log(err))
     }
-    const response = await API.post('quoteapi', '/quotes', options);
-    alert(JSON.stringify(response, null, 2));
-  }
-
-  get = async () => {
-    console.log('calling api');
-    const response = await API.get('quoteapi', '/quotes/object/1');
-    alert(JSON.stringify(response, null, 2));
-  }
-
-  list = async () => {
-    console.log('calling api');
-    const response = await API.get('quoteapi', '/quotes/1');
-    alert(JSON.stringify(response, null, 2));
   }
 }
 
 const mapStateToProps = state => ({
-  product: state.product
+  api: state.api,
+  quote: state.quote,
+  user: state.user
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  changePage: () => push('/about-us')
+  postQuote,
+  setUser,
+  unsetUser
 }, dispatch)
 
-const connectMember = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Member)
-
-export default withAuthenticator(connectMember, true);

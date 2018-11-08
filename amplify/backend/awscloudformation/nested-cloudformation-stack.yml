@@ -141,8 +141,10 @@
 				"TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/storage/quotes-cloudformation-template.json",
 				"Parameters": {
 					"tableName": "quotes",
-					"partitionKeyName": "id",
-					"partitionKeyType": "S"
+					"partitionKeyName": "category",
+					"partitionKeyType": "S",
+					"sortKeyName": "sortUuid",
+					"sortKeyType": "S"
 				}
 			}
 		},

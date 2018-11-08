@@ -1,5 +1,7 @@
 {
     "tableName": "quotes",
-    "partitionKeyName": "id",
-    "partitionKeyType": "S"
+    "partitionKeyName": "category",
+    "partitionKeyType": "S",
+    "sortKeyName": "sortUuid",
+    "sortKeyType": "S"
 }

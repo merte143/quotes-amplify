@@ -3,7 +3,6 @@ import { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Home from '../../routes/home'
 import Quote from '../../routes/quote'
-import About from '../../routes/about'
 import Member from '../../routes/member'
 import Header from '../header'
 import Footer from '../footer'
@@ -15,9 +14,8 @@ class App extends Component {
       <div>
         <Header />
         <main>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/quote' component={Quote} />
-          <Route exact path='/about-us' component={About} />
+          <Route exact path='/' component={Quote} />
+          <Route exact path='/about-us' component={Home} />
           <Route exact path='/member' component={Member} />
         </main>
 

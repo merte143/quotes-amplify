@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import { Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import { bindActionCreators } from 'redux'
 import { slide as Menu } from 'react-burger-menu'
@@ -26,8 +25,8 @@ class Header extends Component {
           className='hamburger-menu'
         >
           <Link onClick={ () => this.closeMenu() } to='/' className="menu-item">Home</Link>
-          <Link onClick={ () => this.closeMenu() } to='/quote' className="menu-item">Quote</Link>
-          <Link onClick={ () => this.closeMenu() } to='/member' className="menu-item">Member</Link>
+          <Link onClick={ () => this.closeMenu() } to='/member' className="menu-item">Submit a quote</Link>
+          <Link onClick={ () => this.closeMenu() } to='/about-us' className="menu-item">About this project</Link>
         </Menu>
       </div>
     )
