@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux'
 import { slide as Menu } from 'react-burger-menu'
 import MenuElement from '../../components/MenuElement'
 import './Header.css'
-import { isMobile } from "react-device-detect"
 
 class Header extends Component {
 
@@ -19,30 +18,33 @@ class Header extends Component {
   }
 
   render() {
+    const isMobile = window.matchMedia('only screen and (max-width: 767px)')
     return (
       <div>
         <Menu
           isOpen={ this.state.isMenuOpen }
           onStateChange={ (status) => this.setState({ isMenuOpen: status.isOpen }) }
           className='hamburger-menu'
-          width={ isMobile ? '300px' : '600px' }
+          width={ isMobile.matches ? '300px' : '600px' }
         >
           <h1>What do you want to do?</h1>
-          <MenuElement
-            onLinkClick={ () => this.closeMenu() }
-            to={ '/' }
-            title={ 'Check a random quote' }
-          />
-          <MenuElement
-            onLinkClick={ () => this.closeMenu() }
-            to={ '/member' }
-            title={ 'Submit a quote' }
-          />
-          <MenuElement
-            onLinkClick={ () => this.closeMenu() }
-            to={ '/about-us' }
-            title={ 'Learn about this project' }
-          />
+          <div className='menu-elements-wrapper'>
+            <MenuElement
+              onLinkClick={ () => this.closeMenu() }
+              to={ '/' }
+              title={ 'Check a random quote' }
+            />
+            <MenuElement
+              onLinkClick={ () => this.closeMenu() }
+              to={ '/member' }
+              title={ 'Submit a quote' }
+            />
+            <MenuElement
+              onLinkClick={ () => this.closeMenu() }
+              to={ '/about-us' }
+              title={ 'Learn about this project' }
+            />
+          </div>
         </Menu>
       </div>
     )

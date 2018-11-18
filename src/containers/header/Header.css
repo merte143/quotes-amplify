@@ -2,6 +2,9 @@
 /* Colors */
 /* Cloudfront */
 /* Main margins */
+.menu-elements-wrapper {
+  margin: -10px; }
+
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -39,6 +42,8 @@
   .bm-item-list .btn.btn-link {
     color: #FFF;
     font-size: 30px; }
+  .bm-item-list h1 {
+    margin: 0 0 20px; }
 
 /* Styling of overlay */
 .bm-overlay {

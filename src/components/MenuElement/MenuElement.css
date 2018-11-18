@@ -3,10 +3,13 @@
 /* Cloudfront */
 /* Main margins */
 .menu-element {
-  width: 50%;
+  width: 100%;
   display: inline-block;
   vertical-align: top;
   padding: 10px; }
+  @media (min-width: 768px) {
+    .menu-element {
+      width: 50%; } }
   .menu-element .wrapper {
     background: white;
     padding: 10px;
@@ -20,7 +23,8 @@
     cursor: pointer; }
     .menu-element .wrapper .icon img {
       border-radius: 50%;
-      margin: 15px; }
+      padding: 15px;
+      width: 100%; }
     .menu-element .wrapper a {
       font-size: 18px;
       line-height: normal;
