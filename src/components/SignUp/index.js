@@ -34,7 +34,7 @@ export default class SignUp extends AuthPiece {
     }
 
     signUp() {
-        const { username, password, email, dial_code='+1', phone_line_number, nickname } = this.inputs;
+        const { username, password, email, dial_code='+1', phone_line_number } = this.inputs;
         if (!Auth || typeof Auth.signUp !== 'function') {
             throw new Error('No Auth module found, please ensure @aws-amplify/auth is imported');
         }
@@ -43,8 +43,7 @@ export default class SignUp extends AuthPiece {
             username,
             password, 
             attributes: {
-                email,
-                nickname
+                email
             }
         };
 
@@ -77,17 +76,6 @@ export default class SignUp extends AuthPiece {
                             theme={theme}
                             key="username"
                             name="username"
-                            onChange={this.handleInputChange}
-                        />
-                    </FormField>
-                    <FormField theme={theme}>
-                        <InputLabel>{'Nickname'} *</InputLabel>
-                        <Input
-                            autoFocus
-                            placeholder={'Create a nickname'}
-                            theme={theme}
-                            key="nickname"
-                            name="nickname"
                             onChange={this.handleInputChange}
                         />
                     </FormField>

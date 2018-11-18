@@ -5,10 +5,10 @@ const awsmobile =  {
     "aws_content_delivery_bucket": "quotesamplify-20180925235300--hostingbucket",
     "aws_content_delivery_bucket_region": "eu-west-1",
     "aws_content_delivery_url": "https://d19m2sqyq831l1.cloudfront.net",
-    "aws_cognito_identity_pool_id": "eu-west-1:86a68f26-d7f1-4f6f-92a8-5b47c54d8abb",
+    "aws_cognito_identity_pool_id": "eu-west-1:18cd263e-8804-4c12-a9c5-2d2cc6ff991a",
     "aws_cognito_region": "eu-west-1",
-    "aws_user_pools_id": "eu-west-1_tVyRWMFYp",
-    "aws_user_pools_web_client_id": "5ee76po8guo5qqoqghv2h61o4i",
+    "aws_user_pools_id": "eu-west-1_abAAwy9Lu",
+    "aws_user_pools_web_client_id": "2fdufct9961nv68hker08ffqmq",
     "aws_dynamodb_all_tables_region": "eu-west-1",
     "aws_dynamodb_table_schemas": [
         {

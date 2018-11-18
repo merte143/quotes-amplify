@@ -8,7 +8,17 @@ import { setUser, unsetUser } from '../../actions/user'
 import QuoteForm from '../../components/QuoteForm'
 import AuthBar from '../../components/AuthBar'
 import SignUp from '../../components/SignUp'
-import { Authenticator, SignIn } from 'aws-amplify-react'
+import { 
+  Authenticator, 
+  SignIn, 
+  TOTPSetup, 
+  ForgotPassword, 
+  VerifyContact, 
+  ConfirmSignUp,
+  ConfirmSignIn,
+  RequireNewPassword,
+  Greetings 
+} from 'aws-amplify-react'
 import Quotes from '../../modules/themes/Quotes'
 
 // add authentication to app
@@ -28,9 +38,15 @@ class Member extends Component {
           <Authenticator
             theme={ Quotes }
             onStateChange={(authState) => this.setUser(authState)}
-            hide={[SignUp]}
             hideDefault={true}
           >
+            <Greetings/>
+            <ConfirmSignIn/>
+            <RequireNewPassword/>
+            <ConfirmSignUp/>
+            <VerifyContact/>
+            <ForgotPassword/>
+            <TOTPSetup/>
             <SignIn />
             <SignUp
               override={SignUp}
