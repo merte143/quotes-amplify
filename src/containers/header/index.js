@@ -5,7 +5,9 @@ import { push } from 'react-router-redux'
 import { Link } from "react-router-dom";
 import { bindActionCreators } from 'redux'
 import { slide as Menu } from 'react-burger-menu'
+import MenuElement from '../../components/MenuElement'
 import './Header.css'
+import { isMobile } from "react-device-detect"
 
 class Header extends Component {
 
@@ -23,10 +25,24 @@ class Header extends Component {
           isOpen={ this.state.isMenuOpen }
           onStateChange={ (status) => this.setState({ isMenuOpen: status.isOpen }) }
           className='hamburger-menu'
+          width={ isMobile ? '300px' : '600px' }
         >
-          <Link onClick={ () => this.closeMenu() } to='/' className="menu-item">Home</Link>
-          <Link onClick={ () => this.closeMenu() } to='/member' className="menu-item">Submit a quote</Link>
-          <Link onClick={ () => this.closeMenu() } to='/about-us' className="menu-item">About this project</Link>
+          <h1>What do you want to do?</h1>
+          <MenuElement
+            onLinkClick={ () => this.closeMenu() }
+            to={ '/' }
+            title={ 'Check a random quote' }
+          />
+          <MenuElement
+            onLinkClick={ () => this.closeMenu() }
+            to={ '/member' }
+            title={ 'Submit a quote' }
+          />
+          <MenuElement
+            onLinkClick={ () => this.closeMenu() }
+            to={ '/about-us' }
+            title={ 'Learn about this project' }
+          />
         </Menu>
       </div>
     )

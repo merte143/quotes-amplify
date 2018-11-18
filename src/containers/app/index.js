@@ -1,11 +1,11 @@
 import React from 'react';
 import { Component } from 'react'
 import { Route } from 'react-router-dom'
-import Home from '../../routes/home'
-import Quote from '../../routes/quote'
-import Member from '../../routes/member'
-import Header from '../header'
-import Footer from '../footer'
+import Home from '../../routes/Home'
+import Quote from '../../routes/Quote'
+import Member from '../../routes/Member'
+import Header from '../Header'
+import Footer from '../Footer'
 
 class App extends Component {
 

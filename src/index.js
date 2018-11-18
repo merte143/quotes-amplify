@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import { store, persistor } from './store'
 import createHistory from "history/createBrowserHistory";
-import App from './containers/app'
+import App from './containers/App'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 
 import './index.css'
