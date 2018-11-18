@@ -7,7 +7,8 @@ import { postQuote } from '../../actions/quote'
 import { setUser, unsetUser } from '../../actions/user'
 import QuoteForm from '../../components/QuoteForm'
 import AuthBar from '../../components/AuthBar'
-import { Authenticator } from 'aws-amplify-react'
+import SignUp from '../../components/SignUp'
+import { Authenticator, SignIn } from 'aws-amplify-react'
 import Quotes from '../../modules/themes/Quotes'
 
 // add authentication to app
@@ -27,7 +28,13 @@ class Member extends Component {
           <Authenticator
             theme={ Quotes }
             onStateChange={(authState) => this.setUser(authState)}
+            hide={[SignUp]}
+            hideDefault={true}
           >
+            <SignIn />
+            <SignUp
+              override={SignUp}
+            />
             <AuthBar
               unsetUser={ unsetUser }
             />
