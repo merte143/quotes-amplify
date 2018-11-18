@@ -15,7 +15,8 @@
     margin: 0px 0px;
     transition: all 1s ease-in-out; }
     .message-element .message p {
-      margin: 0; }
+      margin: 0;
+      font-family: "EB Garamond"; }
     .message-element .message .chat-dots {
       position: relative;
       text-align: center;
