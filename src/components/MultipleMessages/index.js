@@ -34,7 +34,6 @@ export default class MultipleMessages extends Component {
   componentWillReceiveProps(newProps) {
     if (newProps.messages !== this.props.messages) {
       // new messages coming in.. empty renderingList
-      console.log(newProps)
       // this.setState({ renderingList: [] })
       // this.setState({ currentCount: 0 })
       // const { messages } = newProps

@@ -20,8 +20,6 @@ export default class QuoteForm extends Component {
     // hide the container if user is not signed in
     if (authState !== 'signedIn') { return null }
     // get name of logged in user and post as author
-    console.log('api status')
-    console.log(api.status)
     return (
       <div className='quote-form'>
         { !isSubmitted ? (

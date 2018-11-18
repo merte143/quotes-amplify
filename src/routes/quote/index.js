@@ -9,7 +9,6 @@ import QuoteContainer from '../../containers/QuoteContainer'
 class Quote extends Component {
 
   render() {
-    console.log('quote')
     return (
       <Grid>
         <Row>

@@ -12,14 +12,11 @@ import {
     FormField,
     Input,
     InputLabel,
-    SelectInput,
     Button,
     Link,
     SectionFooterPrimaryContent,
     SectionFooterSecondaryContent,
 } from '../../modules/Amplify-UI/Amplify-UI-Components-React';
-
-import countryDialCodes from '../../modules/common/country-dial-codes.js';
 
 export default class SignUp extends AuthPiece {
     constructor(props) {
@@ -52,7 +49,6 @@ export default class SignUp extends AuthPiece {
         if (phone_number) {
             signup_info.attributes.phone_number = phone_number;
         }
-        console.log(signup_info)
         Auth.signUp(signup_info).then(() => this.changeState('confirmSignUp', username))
         .catch(err => this.error(err));
     }
@@ -60,9 +56,6 @@ export default class SignUp extends AuthPiece {
     showComponent(theme) {
         const { hide } = this.props;
         if (hide && hide.includes(SignUp)) { return null; }
-
-        // console.log(countryDialCodes.sort());
-        console.log('using custom component!')
 
         return (
             <FormSection theme={theme}>
