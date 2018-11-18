@@ -40,7 +40,7 @@ class QuoteContainer extends Component {
                 text={ text }
                 sender={ 0 }
               />
-              <p className='submitted-by'>submitted by { author }</p>
+              <p className='quote-author'>{ author }</p>
             </div>
           ) }
         </div>

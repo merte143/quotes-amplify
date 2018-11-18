@@ -10,7 +10,6 @@ export default class AuthBar extends Component {
 
   render () {
     const { authState } = this.props
-    console.log(Auth)
     if ( authState === 'signedIn' ) {
       return (
         <div className='auth-bar'>

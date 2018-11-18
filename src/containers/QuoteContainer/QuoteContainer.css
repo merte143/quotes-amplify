@@ -17,7 +17,7 @@
   width: 100%; }
   .quote-container .wrapper .quote {
     width: 100%; }
-    .quote-container .wrapper .quote .submitted-by {
+    .quote-container .wrapper .quote .quote-author {
       font-size: 12px;
       text-align: center;
       margin: 10px; }

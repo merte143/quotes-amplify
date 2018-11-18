@@ -27,7 +27,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "quotesamplify-20180925234136-deployment",
-					"S3Key": "amplify-builds/quotesamplify09795943-1541458288-latest-build.zip"
+					"S3Key": "amplify-builds/quotesamplify09795943-1542546660-latest-build.zip"
 				}
 			}
 		},

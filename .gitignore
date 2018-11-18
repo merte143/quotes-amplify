@@ -9,6 +9,9 @@
 # production
 /build
 
+# amplify current backend
+/amplify/#current-cloud-backend
+
 # misc
 .DS_Store
 .env.local

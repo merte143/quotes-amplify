@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
-import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
+import { Button, FormGroup, ControlLabel, FormControl, Form } from 'react-bootstrap'
 import './QuoteForm.css'
 import Loading from '../../components/Loading'
 
@@ -9,7 +9,8 @@ export default class QuoteForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: '',
+      quote: '',
+      author: '',
       isSubmitted: false
     }
   }
@@ -24,21 +25,36 @@ export default class QuoteForm extends Component {
       <div className='quote-form'>
         { !isSubmitted ? (
           <div>
-            <FormGroup controlId="quoteFormTextArea">
-              <ControlLabel>Submit a quote</ControlLabel>
-              <FormControl
-                componentClass="textarea"
-                placeholder="Your quote"
-                onChange={ (val) => this.handleChange(val) }
-              />
-            </FormGroup>
-            <Button
-              bsStyle='primary'
-              bsSize='large'
-              onClick={ () => this.submit() }
-            >
-              Post now!
-            </Button>
+            <Form>
+              <FormGroup controlId="quoteFormQuote">
+                <ControlLabel>Submit a quote</ControlLabel>
+                <FormControl
+                  value={ this.state.quote }
+                  componentClass="textarea"
+                  placeholder="Your quote"
+                  name="quote"
+                  onChange={ (val) => this.handleChange(val) }
+                />
+              </FormGroup>
+              <FormGroup controlId="quoteFormAuthor">
+                <ControlLabel>Author</ControlLabel>
+                <FormControl
+                  value={ this.state.author }
+                  type="text"
+                  placeholder="Author"
+                  name="author"
+                  onChange={ (val) => this.handleChange(val) }
+                />
+              </FormGroup>
+
+              <Button
+                bsStyle='primary'
+                bsSize='large'
+                onClick={ () => this.submit() }
+              >
+                Post now!
+              </Button>
+            </Form>
           </div>
         ) : api === 'loading' ? (
           <Loading />
@@ -63,14 +79,16 @@ export default class QuoteForm extends Component {
   }
 
   submit() {
-    const { value } = this.state
+    const { quote, author } = this.state
     const { postQuote, user } = this.props
-    postQuote(value, user.username)
+    postQuote(quote, author, user.username)
     this.setState({ isSubmitted: true })
   }
 
   handleChange(e) {
-    this.setState({ value: e.target.value })
+    this.setState({
+       [e.target.name]: e.target.value
+    })
   }
 
 }

@@ -56,7 +56,7 @@ class Member extends Component {
             />
             <QuoteForm
               user={ user }
-              postQuote={ (quote, author) => postQuote(quote, author) }
+              postQuote={ (quote, author, submittedBy) => postQuote(quote, author, submittedBy) }
               api={ api }
             />
           </Authenticator>

@@ -159,7 +159,6 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, function(req, res) {
     TableName: tableName,
     Limit: 1
   };
-  console.log(params);
 
   // query db
   dynamodb.query(params, function(err, data) {
@@ -223,6 +222,11 @@ app.post(path, function(req, res) {
   }
 
   let newItem = req.body;
+
+  // if no author name is given, set as anonymous
+  newItem.author = (!newItem.author || newItem.author === '') ? 'anonymous' : req.body.author
+
+  // create a new sortUuid
   newItem.sortUuid = uuid();
 
   let putItemParams = {
