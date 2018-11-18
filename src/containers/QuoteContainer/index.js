@@ -6,6 +6,7 @@ import * as GLOBALS from '../../modules/globals'
 import './QuoteContainer.css'
 import { getRandomQuote } from '../../actions/quote'
 import MessageElement from '../../components/MessageElement'
+import Loading from '../../components/Loading'
 
 class QuoteContainer extends Component {
 
@@ -15,8 +16,9 @@ class QuoteContainer extends Component {
   }
 
   render() {
-    const { quote } = this.props
+    const { quote, api } = this.props
     const text = quote && quote.data && quote.data.text
+    const author = quote && quote.data && quote.data.author
     return (
       <div className='quote-container'>
 
@@ -25,12 +27,22 @@ class QuoteContainer extends Component {
         </div>
 
         <div className='wrapper'>
-          <div className='quote'>
-            <MessageElement
-              text={ text }
-              sender={ 0 }
-            />
-          </div>    
+          { api === 'loading' ? (
+            <Loading />
+          ) : api.error ? (
+            <div>
+              <h1>Something went wrong</h1>
+              <p>{ JSON.stringify(api.error) }</p>
+            </div>
+          ) : (
+            <div className='quote'>
+              <MessageElement
+                text={ text }
+                sender={ 0 }
+              />
+              <p className='submitted-by'>submitted by { author }</p>
+            </div>
+          ) }
         </div>
 
       </div>
@@ -39,7 +51,8 @@ class QuoteContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  quote: state.quote
+  quote: state.quote,
+  api: state.api
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

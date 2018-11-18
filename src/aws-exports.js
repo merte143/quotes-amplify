@@ -2,7 +2,7 @@
 
 const awsmobile =  {
     "aws_project_region": "eu-west-1",
-    "aws_content_delivery_bucket": "quotesamplify-20180925235300--hostingbucket",
+    "aws_content_delivery_bucket": "denkarium.co",
     "aws_content_delivery_bucket_region": "eu-west-1",
     "aws_content_delivery_url": "https://d19m2sqyq831l1.cloudfront.net",
     "aws_cognito_identity_pool_id": "eu-west-1:18cd263e-8804-4c12-a9c5-2d2cc6ff991a",

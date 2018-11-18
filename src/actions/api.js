@@ -2,6 +2,6 @@
 export const setApiStatus = (status) => {
   return {
     type: 'SET_API_STATUS',
-    status
+    payload: status
   }
 }

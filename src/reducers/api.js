@@ -1,7 +1,7 @@
-export default (state = '-', action) => {
+export default (state = '', action) => {
   switch (action.type) {
     case 'SET_API_STATUS':
-      return action.payload.message
+      return action.payload
     default:
       return state
   }

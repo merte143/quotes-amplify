@@ -19,17 +19,17 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
 			},
-			"lastPushTimeStamp": "2018-11-18T10:06:35.156Z",
+			"lastPushTimeStamp": "2018-11-18T11:28:17.069Z",
 			"output": {
-				"S3BucketSecureURL": "https://quotesamplify-20180925235300--hostingbucket.s3.amazonaws.com",
-				"WebsiteURL": "http://quotesamplify-20180925235300--hostingbucket.s3-website-eu-west-1.amazonaws.com",
+				"S3BucketSecureURL": "https://denkarium.co.s3.amazonaws.com",
+				"WebsiteURL": "http://denkarium.co.s3-website-eu-west-1.amazonaws.com",
 				"Region": "eu-west-1",
-				"HostingBucketName": "quotesamplify-20180925235300--hostingbucket",
+				"HostingBucketName": "denkarium.co",
 				"CloudFrontSecureURL": "https://d19m2sqyq831l1.cloudfront.net",
 				"CloudFrontDistributionID": "E26Y7AAG3EVPNY",
 				"CloudFrontDomainName": "d19m2sqyq831l1.cloudfront.net"
 			},
-			"lastPushDirHash": "wMiY7IEmIVYXgFY+2t3noP/b5Qg="
+			"lastPushDirHash": "eZeCV8HD0szq2PwnGRWJ24HrWEQ="
 		}
 	},
 	"auth": {
@@ -40,7 +40,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/auth/quotesAuth-cloudformation-template.yml",
 				"logicalId": "authquotesAuth"
 			},
-			"lastPushTimeStamp": "2018-11-18T10:06:35.164Z",
+			"lastPushTimeStamp": "2018-11-18T11:28:17.066Z",
 			"output": {
 				"AppClientSecret": "ebokupsod79v2uc049oulett68or4s1q874pne3b418hgfq2v4b",
 				"UserPoolId": "eu-west-1_abAAwy9Lu",
@@ -61,7 +61,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/storage/quotes-cloudformation-template.json",
 				"logicalId": "storagequotes"
 			},
-			"lastPushTimeStamp": "2018-11-18T10:06:35.160Z",
+			"lastPushTimeStamp": "2018-11-18T11:28:17.067Z",
 			"output": {
 				"PartitionKeyName": "category",
 				"SortKeyName": "sortUuid",
@@ -96,7 +96,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/function/quotesamplify09795943-cloudformation-template.json",
 				"logicalId": "functionquotesamplify09795943"
 			},
-			"lastPushTimeStamp": "2018-11-18T10:06:35.161Z",
+			"lastPushTimeStamp": "2018-11-18T11:28:17.068Z",
 			"output": {
 				"Region": "eu-west-1",
 				"Arn": "arn:aws:lambda:eu-west-1:713457383886:function:quotesamplify09795943",
@@ -123,7 +123,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/quotesamplify-20180925234136-deployment/amplify-cfn-templates/api/quoteapi-cloudformation-template.json",
 				"logicalId": "apiquoteapi"
 			},
-			"lastPushTimeStamp": "2018-11-18T10:06:35.162Z",
+			"lastPushTimeStamp": "2018-11-18T11:28:17.068Z",
 			"output": {
 				"ApiName": "quoteapi",
 				"RootUrl": "https://l3zptqmqch.execute-api.eu-west-1.amazonaws.com/Prod"

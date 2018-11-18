@@ -30,7 +30,7 @@ Amplify.configure(aws_exports);
 class Member extends Component {
 
   render() {
-    const { postQuote, unsetUser, user } = this.props
+    const { postQuote, unsetUser, user, api } = this.props
     return (
       <Grid>
         <Row>
@@ -57,6 +57,7 @@ class Member extends Component {
             <QuoteForm
               user={ user }
               postQuote={ (quote, author) => postQuote(quote, author) }
+              api={ api }
             />
           </Authenticator>
           </Col>

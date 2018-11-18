@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import { Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
 import './QuoteForm.css'
+import Loading from '../../components/Loading'
 
 export default class QuoteForm extends Component {
 
@@ -14,11 +15,13 @@ export default class QuoteForm extends Component {
   }
 
   render () {
-    const { authState } = this.props
+    const { authState, api } = this.props
     const { isSubmitted } = this.state
     // hide the container if user is not signed in
     if (authState !== 'signedIn') { return null }
     // get name of logged in user and post as author
+    console.log('api status')
+    console.log(api.status)
     return (
       <div className='quote-form'>
         { !isSubmitted ? (
@@ -39,7 +42,9 @@ export default class QuoteForm extends Component {
               Post now!
             </Button>
           </div>
-        ) : (
+        ) : api === 'loading' ? (
+          <Loading />
+        ) : !api.error ? (
           <div>
             <h2>Thanks for submitting your quote!</h2>
             <Button 
@@ -49,6 +54,10 @@ export default class QuoteForm extends Component {
             >
               Submit another one
             </Button>
+          </div>
+        ) : (
+          <div>
+            <p>Something went wrong. Try refreshing the page and give it another go!</p>
           </div>
         ) }
       </div>

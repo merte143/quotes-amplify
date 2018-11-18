@@ -1,18 +1,13 @@
 // add db access
 import { API } from 'aws-amplify';
+import { setApiStatus } from './api'
 
 /* POST Quote */
 
 // Sync Action
 export const postQuoteSuccess = (quote) => {
-  const payload = {
-    message: 'success'
-  }
   return (dispatch) => {
-    dispatch({
-      type: 'SET_API_STATUS',
-      payload
-    })
+    dispatch(setApiStatus(''))
   }
 }
 
@@ -20,6 +15,8 @@ export const postQuoteSuccess = (quote) => {
 export const postQuote = (quote, author) => {
   console.log('posting quote')
   return async (dispatch) => {
+    // update api status
+    dispatch(setApiStatus('loading'))
     console.log('calling api');
     const options = {
       body: {
@@ -29,8 +26,13 @@ export const postQuote = (quote, author) => {
       }
     }
     const response = await API.post('quoteapi', '/quotes', options);
-    console.log(JSON.stringify(response, null, 2));
-    dispatch(postQuoteSuccess(response))
+    if (response.error) {
+      dispatch(setApiStatus(response.error))
+    } else {
+      dispatch(postQuoteSuccess(response))
+      dispatch(setApiStatus(''))
+    }
+    
   }
 }
 
@@ -45,15 +47,16 @@ export const getQuoteSuccess = (quote) => {
     dispatch({
       type: 'SET_QUOTE',
       payload
-    })
+    }),
+    dispatch(setApiStatus(''))
   }
 }
 
 // Async Action
 export const getQuote = (id) => {
   console.log('getting quote with sortId ' + id)    
-
   return async (dispatch) => {
+    dispatch(setApiStatus('loading'))
     console.log('calling api');
     const response = await API.get('quoteapi', '/quotes/object/quote/' + id);
     console.log(JSON.stringify(response, null, 2));
@@ -72,15 +75,16 @@ export const getRandomQuoteSuccess = (quote) => {
     dispatch({
       type: 'SET_QUOTE',
       payload
-    })
+    }),
+    dispatch(setApiStatus(''))
   }
 }
 
 // Async Action
 export const getRandomQuote = () => {
   console.log('getting random quote..')    
-
   return async (dispatch) => {
+    dispatch(setApiStatus('loading'))
     console.log('calling api');
     // last url part = type / hashKey in table
     const response = await API.get('quoteapi', '/quotes/random/quote');

@@ -3,6 +3,7 @@ import { routerReducer } from 'react-router-redux'
 import chat from './chat'
 import quote from './quote'
 import user from './user'
+import api from './api'
 import chatPosition from './chatPosition'
 
 export default combineReducers({
@@ -10,5 +11,6 @@ export default combineReducers({
   chat,
   chatPosition,
   quote,
-  user
+  user,
+  api
 })
