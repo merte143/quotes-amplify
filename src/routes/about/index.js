@@ -11,7 +11,7 @@ class About extends Component {
     return (
       <Grid>
         <Row>
-          <Col col-xs='12'>
+          <Col xs={ 12 } md={ 10 } mdOffset={ 1 } lg={ 8 } lgOffset={ 2 }>
             <h1>About Us</h1>
             <p>toll.</p>            
           </Col>

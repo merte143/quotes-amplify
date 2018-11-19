@@ -1,0 +1,33 @@
+/* --------------------------------
+
+Generated using nucleoapp.com
+
+-------------------------------- */
+.icon {
+  display: inline-block;
+  background-image: url(./icons.svg);
+  background-repeat: no-repeat; }
+
+.icon.icon-quote {
+  background-position: -0px 0px;
+  height: 64px;
+  width: 64px; }
+
+.icon.icon-chat-46 {
+  background-position: -64px 0px;
+  height: 64px;
+  width: 64px; }
+
+.icon.icon-send {
+  background-position: -128px 0px;
+  height: 64px;
+  width: 64px; }
+
+.icon.icon-quote.icon-white {
+  background-position: -192px 0px; }
+
+.icon.icon-chat-46.icon-white {
+  background-position: -256px 0px; }
+
+.icon.icon-send.icon-white {
+  background-position: -320px 0px; }

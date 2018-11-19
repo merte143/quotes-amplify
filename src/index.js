@@ -15,6 +15,8 @@ import App from './containers/App'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 
 import './index.css'
+// nucleo icons
+import './icons.css'
 
 const target = document.querySelector('#root')
 

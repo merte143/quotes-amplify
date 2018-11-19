@@ -2,6 +2,9 @@
 /* Colors */
 /* Cloudfront */
 /* Main margins */
+.hamburger-menu {
+  -webkit-overflow-scrolling: touch; }
+
 .menu-elements-wrapper {
   margin: -10px; }
 
@@ -40,10 +43,10 @@
 .bm-item-list {
   color: #b8b7ad; }
   .bm-item-list .btn.btn-link {
-    color: #FFF;
+    color: #7a7676;
     font-size: 30px; }
   .bm-item-list h1 {
-    margin: 0 0 20px; }
+    margin: 0 0 30px; }
 
 /* Styling of overlay */
 .bm-overlay {

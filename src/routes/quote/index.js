@@ -12,7 +12,7 @@ class Quote extends Component {
     return (
       <Grid>
         <Row>
-          <Col xs={ 12 }>
+          <Col xs={ 12 } md={ 10 } mdOffset={ 1 } lg={ 8 } lgOffset={ 2 }>
             <QuoteContainer />
           </Col>
         </Row>

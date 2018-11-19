@@ -19,11 +19,17 @@
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     text-align: center;
     cursor: pointer;
-    .icon {
-      img {
-        border-radius: 50%;
-        padding: 15px;
-        width: 100%;
+    .icon-wrapper {
+      border-radius: 50%;
+      padding: 15px;
+      width: 165px;
+      height: 165px;
+      display: table;
+      margin: 15px auto;
+      .icon-center {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
       }
     }
     a {

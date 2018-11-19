@@ -33,16 +33,22 @@ class Header extends Component {
               onLinkClick={ () => this.closeMenu() }
               to={ '/' }
               title={ 'Check a random quote' }
+              iconClasses={ ['icon', 'icon-quote', 'icon-white'] }
+              color={ 'color-green' }
             />
             <MenuElement
               onLinkClick={ () => this.closeMenu() }
               to={ '/member' }
               title={ 'Submit a quote' }
+              iconClasses={ ['icon', 'icon-send', 'icon-white'] }
+              color={ 'color-orange' }
             />
             <MenuElement
               onLinkClick={ () => this.closeMenu() }
               to={ '/about-us' }
               title={ 'Learn about this project' }
+              iconClasses={ ['icon', 'icon-chat-46', 'icon-white'] }
+              color={ 'color-black' }
             />
           </div>
         </Menu>

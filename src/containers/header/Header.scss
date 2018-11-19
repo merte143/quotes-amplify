@@ -1,5 +1,9 @@
 @import "../../variables.scss";
 
+.hamburger-menu {
+  -webkit-overflow-scrolling: touch;
+}
+
 .menu-elements-wrapper {
   margin: -10px;
 }
@@ -49,7 +53,7 @@
     font-size: 30px;
   }
   h1 {
-    margin: 0 0 20px;
+    margin: 0 0 30px;
   }
 }
 

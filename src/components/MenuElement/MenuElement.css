@@ -21,15 +21,22 @@
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     text-align: center;
     cursor: pointer; }
-    .menu-element .wrapper .icon img {
+    .menu-element .wrapper .icon-wrapper {
       border-radius: 50%;
       padding: 15px;
-      width: 100%; }
+      width: 165px;
+      height: 165px;
+      display: table;
+      margin: 15px auto; }
+      .menu-element .wrapper .icon-wrapper .icon-center {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center; }
     .menu-element .wrapper a {
       font-size: 18px;
       line-height: normal;
       padding: 0;
-      color: #3D3A3A; }
+      color: #011626; }
       .menu-element .wrapper a:hover {
         text-decoration: none; }
   .menu-element .wrapper::after {

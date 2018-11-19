@@ -34,32 +34,32 @@ class Member extends Component {
     return (
       <Grid>
         <Row>
-          <Col col-xs='12'>
-          <Authenticator
-            theme={ Quotes }
-            onStateChange={(authState) => this.setUser(authState)}
-            hideDefault={true}
-          >
-            <Greetings/>
-            <ConfirmSignIn/>
-            <RequireNewPassword/>
-            <ConfirmSignUp/>
-            <VerifyContact/>
-            <ForgotPassword/>
-            <TOTPSetup/>
-            <SignIn />
-            <SignUp
-              override={SignUp}
-            />
-            <AuthBar
-              unsetUser={ unsetUser }
-            />
-            <QuoteForm
-              user={ user }
-              postQuote={ (quote, author, submittedBy) => postQuote(quote, author, submittedBy) }
-              api={ api }
-            />
-          </Authenticator>
+          <Col xs={ 12 } md={ 10 } mdOffset={ 1 } lg={ 8 } lgOffset={ 2 }>
+            <Authenticator
+              theme={ Quotes }
+              onStateChange={(authState) => this.setUser(authState)}
+              hideDefault={true}
+            >
+              <Greetings/>
+              <ConfirmSignIn/>
+              <RequireNewPassword/>
+              <ConfirmSignUp/>
+              <VerifyContact/>
+              <ForgotPassword/>
+              <TOTPSetup/>
+              <SignIn />
+              <SignUp
+                override={SignUp}
+              />
+              <AuthBar
+                unsetUser={ unsetUser }
+              />
+              <QuoteForm
+                user={ user }
+                postQuote={ (quote, author, submittedBy) => postQuote(quote, author, submittedBy) }
+                api={ api }
+              />
+            </Authenticator>
           </Col>
         </Row>
       </Grid>

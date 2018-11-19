@@ -2,19 +2,23 @@
 $font-size-base: 26px;
 
 /* Colors */
-$color-white: #FFF;
+$color-white: rgb(122, 118, 118);
 $color-light-grey: #f2f2f2;
 $color-grey: #e2e2e2;
 $color-dark-grey: #888888;
 $color-mid-grey: #bbbbbb;
+
 $color-primary: #F29335;
 $color-primary-light: #FF905A;
 $color-primary-dark: #d98a3f;
 $color-primary-medium: #F2641F;
+
+$color-orange: #FF9F1D;
+$color-red: #E71D36;
 $color-blue: #2C68A3;
-$color-green: #1abc9c;
+$color-green: #2DC4B6;
 $color-green-strong: #67B618;
-$color-black: #3D3A3A;
+$color-black: #011626;
 
 /* Cloudfront */
 $assets-url: 'https://s3-eu-west-1.amazonaws.com/gide-fake-assets/';
