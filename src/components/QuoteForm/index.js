@@ -11,6 +11,7 @@ export default class QuoteForm extends Component {
     this.state = {
       quote: '',
       author: '',
+      reflection: '',
       isSubmitted: false
     }
   }
@@ -46,7 +47,16 @@ export default class QuoteForm extends Component {
                   onChange={ (val) => this.handleChange(val) }
                 />
               </FormGroup>
-
+              <FormGroup controlId="quoteFormReflection">
+                <ControlLabel>Add some thoughts</ControlLabel>
+                <FormControl
+                  value={ this.state.reflection }
+                  componentClass="textarea"
+                  placeholder="Your reflections"
+                  name="reflection"
+                  onChange={ (val) => this.handleChange(val) }
+                />
+              </FormGroup>
               <Button
                 bsStyle='primary'
                 bsSize='large'
@@ -79,9 +89,9 @@ export default class QuoteForm extends Component {
   }
 
   submit() {
-    const { quote, author } = this.state
+    const { quote, author, reflection } = this.state
     const { postQuote, user } = this.props
-    postQuote(quote, author, user.username)
+    postQuote(quote, author, user.username, reflection)
     this.setState({ isSubmitted: true })
   }
 

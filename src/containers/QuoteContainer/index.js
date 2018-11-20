@@ -2,13 +2,22 @@ import * as React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Button } from 'react-bootstrap'
 import * as GLOBALS from '../../modules/globals'
 import './QuoteContainer.css'
 import { getRandomQuote } from '../../actions/quote'
 import MessageElement from '../../components/MessageElement'
+import ReflectionElement from '../../components/ReflectionElement'
 import Loading from '../../components/Loading'
 
 class QuoteContainer extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      showReflection: false
+    }
+  }
 
   componentDidMount() {
     const { getRandomQuote } = this.props
@@ -17,8 +26,11 @@ class QuoteContainer extends Component {
 
   render() {
     const { quote, api } = this.props
+    const { showReflection } = this.state
     const text = quote && quote.data && quote.data.text
     const author = quote && quote.data && quote.data.author
+    const reflection = quote && quote.data && quote.data.reflection
+    console.log(reflection)
     return (
       <div className='quote-container'>
 
@@ -41,6 +53,14 @@ class QuoteContainer extends Component {
                 sender={ 0 }
               />
               <p className='quote-author'>{ author }</p>
+              <div className='reflection-section'>
+                <Button onClick={ () => this.setState({showReflection: !showReflection}) }>Show reflection</Button>
+                { showReflection && (
+                  <ReflectionElement
+                    reflection={ reflection && reflection.length > 1 ? reflection : 'no reflection submitted' }
+                  />
+                )}
+              </div>
             </div>
           ) }
         </div>

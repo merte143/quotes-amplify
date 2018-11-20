@@ -12,7 +12,7 @@ export const postQuoteSuccess = (quote) => {
 }
 
 // Async Action
-export const postQuote = (quote, author, submittedBy) => {
+export const postQuote = (quote, author, submittedBy, reflection) => {
   return async (dispatch) => {
     // update api status
     dispatch(setApiStatus('loading'))
@@ -21,7 +21,8 @@ export const postQuote = (quote, author, submittedBy) => {
         category: 'quote',
         text: quote,
         author: author,
-        submittedBy: submittedBy
+        submittedBy: submittedBy,
+        reflection: reflection
       }
     }
     const response = await API.post('quoteapi', '/quotes', options);
