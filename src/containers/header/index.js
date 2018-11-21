@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { Link } from "react-router-dom";
 import { bindActionCreators } from 'redux'
 import { slide as Menu } from 'react-burger-menu'
 import MenuElement from '../../components/MenuElement'
@@ -59,21 +57,13 @@ class Header extends Component {
   closeMenu() {
     this.setState({ isMenuOpen: false })
   }
-
-  goToPage(path) {
-    const { changePage } = this.props
-    this.setState({ isMenuOpen: false })
-    changePage(path)
-  }
 }
 
 const mapStateToProps = state => ({
   message: state.message
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  changePage: (path) => push(path)
-}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
 
 export default connect(
   mapStateToProps,

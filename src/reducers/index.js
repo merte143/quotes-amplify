@@ -4,6 +4,7 @@ import chat from './chat'
 import quote from './quote'
 import user from './user'
 import api from './api'
+import onboarding from './onboarding'
 import chatPosition from './chatPosition'
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   chatPosition,
   quote,
   user,
+  onboarding,
   api
 })

@@ -12,7 +12,7 @@ body {
   -webkit-overflow-scrolling: touch; }
   @media (min-width: 768px) {
     body {
-      font-size: 28px; } }
+      font-size: 20px; } }
 
 h1 {
   font-family: "EB Garamond";

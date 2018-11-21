@@ -30,12 +30,11 @@ class QuoteContainer extends Component {
     const text = quote && quote.data && quote.data.text
     const author = quote && quote.data && quote.data.author
     const reflection = quote && quote.data && quote.data.reflection
-    console.log(reflection)
     return (
       <div className='quote-container'>
 
         <div className='bot-profile'>
-          <img src={ GLOBALS.ASSETS_URL + 'author/hat.png' } alt='bot' />
+          <img src={ GLOBALS.ASSETS_URL + 'assets/denk.jpg' } alt='bot' />
         </div>
 
         <div className='wrapper'>
@@ -54,7 +53,7 @@ class QuoteContainer extends Component {
               />
               <p className='quote-author'>{ author }</p>
               <div className='reflection-section'>
-                <Button onClick={ () => this.setState({showReflection: !showReflection}) }>Show reflection</Button>
+                <Button bsStyle='primary' onClick={ () => this.setState({showReflection: !showReflection}) }>{ !showReflection ? 'Show' : 'Hide' } reflection</Button>
                 { showReflection && (
                   <ReflectionElement
                     reflection={ reflection && reflection.length > 1 ? reflection : 'no reflection submitted' }

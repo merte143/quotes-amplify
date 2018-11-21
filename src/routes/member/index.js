@@ -31,6 +31,14 @@ class Member extends Component {
 
   render() {
     const { postQuote, unsetUser, user, api } = this.props
+    const SalveComponent = () => {
+      return (
+          <div>
+            <h1>Salve,</h1>
+            <p>Welcome to the Club. You are now at the heart of Denkarium. Please submit a thought and share it with the people you like!</p>
+          </div>
+      )
+    }
     return (
       <Grid>
         <Row>
@@ -54,6 +62,7 @@ class Member extends Component {
               <AuthBar
                 unsetUser={ unsetUser }
               />
+              <SalveComponent />
               <QuoteForm
                 user={ user }
                 postQuote={ (quote, author, submittedBy, reflection) => postQuote(quote, author, submittedBy, reflection) }

@@ -31,7 +31,8 @@ const persistConfig = {
   key: 'root',
   storage: storage,
   whitelist: [
-    'variant'
+    'variant',
+    'onboarding'
   ]
 }
 

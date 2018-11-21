@@ -1,8 +1,22 @@
 @import "../../variables.scss";
 
 .quote-form {
-  margin: 60px 20px;
+  margin: 40px 0px;
   textarea {
     height: 180px;
+    background: #f7f7f7;
+    border: 1px solid #eee;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  input {
+    background: #f7f7f7;
+    border: 1px solid #eee;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  label {
+    font-size: 24px;
+    font-family: $font-serif;
   }
 }

@@ -1,0 +1,29 @@
+/* Variables */
+/* Colors */
+/* Cloudfront */
+/* Main margins */
+.intro-modal .modal-content {
+  border-radius: 0; }
+  .intro-modal .modal-content h1 {
+    font-size: 48px;
+    margin-bottom: 30px; }
+  .intro-modal .modal-content h3 {
+    margin: 35px 0 20px 0px; }
+  .intro-modal .modal-content button.close {
+    opacity: 1; }
+  .intro-modal .modal-content .modal-header {
+    border: none; }
+  .intro-modal .modal-content .modal-body {
+    padding: 20px 25px; }
+  .intro-modal .modal-content .btn.btn-primary {
+    display: block;
+    margin: 10px 0;
+    margin: 15px 0;
+    padding: 18px 25px;
+    font-size: 18px; }
+  .intro-modal .modal-content .btn.btn-link {
+    display: inline-block;
+    width: 50%;
+    font-size: 18px;
+    padding: 0;
+    text-align: left; }
