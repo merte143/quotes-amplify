@@ -101,7 +101,6 @@ export default class SignUp extends AuthPiece {
                         </Button>
                     </SectionFooterPrimaryContent>
                     <SectionFooterSecondaryContent theme={theme}>
-                        {'Have an account? '}
                         <Link theme={theme} onClick={() => this.changeState('signIn')}>
                             {'Sign in'}
                         </Link>

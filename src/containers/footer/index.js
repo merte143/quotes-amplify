@@ -9,7 +9,10 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className='footer' />
+      <div className='footer'>
+        <p className='author'>by Timo Müller</p>
+        <p className='address'>Geygerstr. 3 | 12043 Berlin | timo.h.mueller@gmail.com</p>
+      </div>
     )
   }
 }

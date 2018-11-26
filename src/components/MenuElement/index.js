@@ -12,9 +12,11 @@ export default class MenuElement extends Component {
       <div className='menu-element'>
         <div className='wrapper'>
           <Link onClick={ () => onLinkClick() } to={ to } className="menu-item">
-            <div className={ classnames('icon-wrapper', color) }>
-              <div className='icon-center'>
-                <i className={ classnames(...iconClasses) } />
+            <div className='icon-container'>
+              <div className={ classnames('icon-wrapper', color) }>
+                <div className='icon-center'>
+                  <i className={ classnames(...iconClasses) } />
+                </div>
               </div>
             </div>
             <div className='text'>

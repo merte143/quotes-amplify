@@ -17,4 +17,8 @@
     box-shadow: none; }
   .quote-form label {
     font-size: 24px;
-    font-family: "EB Garamond"; }
+    font-family: "Roboto Slab";
+    font-weight: normal;
+    margin: 20px 0 10px; }
+  .quote-form .btn-primary {
+    width: 100%; }

@@ -18,16 +18,40 @@ Generated using nucleoapp.com
   height: 64px;
   width: 64px; }
 
-.icon.icon-send {
+.icon.icon-send-2 {
   background-position: -128px 0px;
   height: 64px;
   width: 64px; }
 
+.icon.icon-send-2-2 {
+  background-position: -192px 0px;
+  height: 32px;
+  width: 32px; }
+
+.icon.icon-chat-46-2 {
+  background-position: -224px 0px;
+  height: 24px;
+  width: 24px; }
+
+.icon.icon-quote-2 {
+  background-position: -248px 0px;
+  height: 32px;
+  width: 32px; }
+
 .icon.icon-quote.icon-white {
-  background-position: -192px 0px; }
+  background-position: -280px 0px; }
 
 .icon.icon-chat-46.icon-white {
-  background-position: -256px 0px; }
+  background-position: -344px 0px; }
 
-.icon.icon-send.icon-white {
-  background-position: -320px 0px; }
+.icon.icon-send-2.icon-white {
+  background-position: -408px 0px; }
+
+.icon.icon-send-2-2.icon-white {
+  background-position: -472px 0px; }
+
+.icon.icon-chat-46-2.icon-white {
+  background-position: -504px 0px; }
+
+.icon.icon-quote-2.icon-white {
+  background-position: -528px 0px; }

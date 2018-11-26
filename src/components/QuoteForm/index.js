@@ -21,11 +21,19 @@ export default class QuoteForm extends Component {
     const { isSubmitted } = this.state
     // hide the container if user is not signed in
     if (authState !== 'signedIn') { return null }
-    // get name of logged in user and post as author
+    const SalveComponent = () => {
+      return (
+          <div>
+            <h1>Salve,</h1>
+            <p>Welcome to the Club. You are now at the heart of Denkarium. Please submit a thought and share it with the people you like!</p>
+          </div>
+      )
+    }
     return (
       <div className='quote-form'>
         { !isSubmitted ? (
           <div>
+            <SalveComponent />
             <Form>
               <FormGroup controlId="quoteFormQuote">
                 <ControlLabel>Submit a quote</ControlLabel>

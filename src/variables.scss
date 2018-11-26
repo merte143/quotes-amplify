@@ -2,9 +2,9 @@
 $font-size-base: 26px;
 
 /* Colors */
-$color-white: rgb(122, 118, 118);
+$color-white: #fff;
 $color-light-grey: #f2f2f2;
-$color-grey: #e2e2e2;
+$color-grey: #eee;
 $color-dark-grey: #888888;
 $color-mid-grey: #bbbbbb;
 
@@ -27,7 +27,7 @@ $assets-url: 'https://s3-eu-west-1.amazonaws.com/gide-fake-assets/';
 $main-margin-bottom: 60px;
 
 // Fonts
-$font-serif: 'EB Garamond';
+$font-serif: 'Roboto Slab';
 $font-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 
 //== Media queries breakpoints

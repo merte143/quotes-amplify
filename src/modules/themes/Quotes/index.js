@@ -1,3 +1,5 @@
+import * as GLOBAL from '../../globals'
+
 export const Container = {}
 
 export const NavBar = {}
@@ -18,7 +20,10 @@ export const FormSection = {}
 
 export const ErrorSection = {}
 
-export const SectionHeader = {}
+export const SectionHeader = {
+  fontFamily: GLOBAL.FONT_SERIF,
+  fontSize: '26px'
+}
 
 export const SectionFooter = {}
 

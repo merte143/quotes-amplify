@@ -8,9 +8,9 @@ import { setUser, unsetUser } from '../../actions/user'
 import QuoteForm from '../../components/QuoteForm'
 import AuthBar from '../../components/AuthBar'
 import SignUp from '../../components/SignUp'
+import SignIn from '../../components/SignIn'
 import { 
   Authenticator, 
-  SignIn, 
   TOTPSetup, 
   ForgotPassword, 
   VerifyContact, 
@@ -31,14 +31,6 @@ class Member extends Component {
 
   render() {
     const { postQuote, unsetUser, user, api } = this.props
-    const SalveComponent = () => {
-      return (
-          <div>
-            <h1>Salve,</h1>
-            <p>Welcome to the Club. You are now at the heart of Denkarium. Please submit a thought and share it with the people you like!</p>
-          </div>
-      )
-    }
     return (
       <Grid>
         <Row>
@@ -55,14 +47,15 @@ class Member extends Component {
               <VerifyContact/>
               <ForgotPassword/>
               <TOTPSetup/>
-              <SignIn />
+              <SignIn
+                override={SignIn}
+              />
               <SignUp
                 override={SignUp}
               />
               <AuthBar
                 unsetUser={ unsetUser }
               />
-              <SalveComponent />
               <QuoteForm
                 user={ user }
                 postQuote={ (quote, author, submittedBy, reflection) => postQuote(quote, author, submittedBy, reflection) }

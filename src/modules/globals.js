@@ -12,5 +12,6 @@ module.exports = {
   COLOR_GREEN: '#2DC4B6',
   COLOR_ORANGE: '#FF9F1D',
   COLOR_RED: '#E71D36',
-  COLOR_BLACK: '#011626'
+  COLOR_BLACK: '#011626',
+  FONT_SERIF: 'Roboto Slab'
 }

@@ -36,7 +36,7 @@
   .message-element.answer .message {
     float: right;
     background: #2C68A3;
-    color: #7a7676;
+    color: #fff;
     width: auto; }
 
 @keyframes wave {

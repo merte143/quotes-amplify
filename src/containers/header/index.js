@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { slide as Menu } from 'react-burger-menu'
 import MenuElement from '../../components/MenuElement'
+import Footer from '../../containers/Footer'
 import './Header.css'
 
 class Header extends Component {
@@ -17,6 +18,9 @@ class Header extends Component {
 
   render() {
     const isMobile = window.matchMedia('only screen and (max-width: 767px)')
+    const iconQuote = !isMobile.matches ? 'icon-quote' : 'icon-quote-2'
+    const iconSend = !isMobile.matches ? 'icon-send-2' : 'icon-send-2-2'
+    const iconChat = !isMobile.matches ? 'icon-chat-46' : 'icon-chat-46-2'
     return (
       <div>
         <Menu
@@ -31,24 +35,25 @@ class Header extends Component {
               onLinkClick={ () => this.closeMenu() }
               to={ '/' }
               title={ 'Check a random quote' }
-              iconClasses={ ['icon', 'icon-quote', 'icon-white'] }
+              iconClasses={ ['icon', iconQuote, 'icon-white'] }
               color={ 'color-green' }
             />
             <MenuElement
               onLinkClick={ () => this.closeMenu() }
               to={ '/member' }
               title={ 'Submit a quote' }
-              iconClasses={ ['icon', 'icon-send', 'icon-white'] }
+              iconClasses={ ['icon', iconSend, 'icon-white'] }
               color={ 'color-orange' }
             />
             <MenuElement
               onLinkClick={ () => this.closeMenu() }
               to={ '/about-us' }
               title={ 'Learn about this project' }
-              iconClasses={ ['icon', 'icon-chat-46', 'icon-white'] }
+              iconClasses={ ['icon', iconChat, 'icon-white'] }
               color={ 'color-black' }
             />
           </div>
+          <Footer />
         </Menu>
       </div>
     )

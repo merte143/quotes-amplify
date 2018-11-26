@@ -77,18 +77,6 @@ export default class ActionContainer extends Component {
             Next
           </Button>
         ) }
-
-        <div className='navigation-buttons'>
-          <Button onClick={ () => showChat(2,4) }>
-            2-4
-          </Button>
-          <Button onClick={ () => nextChat() }>
-            Next
-          </Button>
-          <Button onClick={ () => prevChat() }>
-            Prev
-          </Button>
-        </div>
       </div> 
     )
   }

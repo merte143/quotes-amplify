@@ -1,11 +1,11 @@
 @import "../../variables.scss";
 
 .loading {
-  border: 6px solid $color-white;
-  border-top: 6px solid $color-primary;
+  border: 8px solid $color-grey;
+  border-top: 8px solid $color-primary;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
   animation: spin 1s linear infinite;
   display: block;
   margin: 40px auto;

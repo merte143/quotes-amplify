@@ -29,4 +29,5 @@
         float: none; }
 
 .quote-container .reflection-section {
-  text-align: center; }
+  text-align: center;
+  margin: 10px 0 30px; }
