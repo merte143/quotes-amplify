@@ -2,7 +2,17 @@
 
 .auth-bar {
   text-align: right;
-  button {
-    margin: 15px;
+  .btn.logout {
+    position: fixed;
+    right: 20px;
+    top: 30px;
+    padding: 0;
+    svg path {
+      fill: $color-black;
+    }
+    @media (min-width: $screen-sm) {
+      right: 28px;
+      top: 32px;
+    }
   }
 }

@@ -9,6 +9,8 @@ import { getRandomQuote } from '../../actions/quote'
 import MessageElement from '../../components/MessageElement'
 import ReflectionElement from '../../components/ReflectionElement'
 import Loading from '../../components/Loading'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRedo } from '@fortawesome/free-solid-svg-icons'
 
 class QuoteContainer extends Component {
 
@@ -18,7 +20,7 @@ class QuoteContainer extends Component {
   }
 
   render() {
-    const { quote, api } = this.props
+    const { quote, api, getRandomQuote } = this.props
     const text = quote && quote.data && quote.data.text
     const author = quote && quote.data && quote.data.author
     const reflection = quote && quote.data && quote.data.reflection
@@ -28,6 +30,10 @@ class QuoteContainer extends Component {
         <div className='bot-profile'>
           <img src={ GLOBALS.ASSETS_URL + 'assets/denk.jpg' } alt='bot' />
         </div>
+
+        <Button className='refresh' bsStyle='link' onClick={ () => getRandomQuote() }>
+          <FontAwesomeIcon size="3x" icon={ faRedo } />
+        </Button>
 
         <div className='wrapper'>
           { api === 'loading' ? (

@@ -28,7 +28,6 @@ import aws_exports from '../../aws-exports.js';
 Amplify.configure(aws_exports);
 
 class Member extends Component {
-
   render() {
     const { postQuote, unsetUser, user, api } = this.props
     return (

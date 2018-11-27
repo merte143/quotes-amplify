@@ -17,14 +17,14 @@ export default class QuoteForm extends Component {
   }
 
   render () {
-    const { authState, api } = this.props
+    const { authState, api, user } = this.props
     const { isSubmitted } = this.state
     // hide the container if user is not signed in
-    if (authState !== 'signedIn') { return null }
-    const SalveComponent = () => {
+    if (authState !== 'signedIn' || !user) { return null }
+    const SalveComponent = (user) => {
       return (
           <div>
-            <h1>Salve,</h1>
+            <h1>Salve { this.props.user.username },</h1>
             <p>Welcome to the Club. You are now at the heart of Denkarium. Please submit a thought and share it with the people you like!</p>
           </div>
       )
@@ -46,7 +46,7 @@ export default class QuoteForm extends Component {
                 />
               </FormGroup>
               <FormGroup controlId="quoteFormAuthor">
-                <ControlLabel>Author</ControlLabel>
+                <ControlLabel>Author (optional)</ControlLabel>
                 <FormControl
                   value={ this.state.author }
                   type="text"

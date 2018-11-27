@@ -21,6 +21,11 @@ body {
   }
 }
 
+main>.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 h1 {
   font-family: $font-serif;
   color: $color-black;

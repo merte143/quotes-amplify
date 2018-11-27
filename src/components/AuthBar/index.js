@@ -13,8 +13,8 @@ export default class AuthBar extends Component {
     if ( authState === 'signedIn' ) {
       return (
         <div className='auth-bar'>
-          <Button bsStyle='info' onClick={ () => this.signMeOut() }>
-            <FontAwesomeIcon icon={ faSignOutAlt } /> Logout
+          <Button className='logout' bsStyle='link' onClick={ () => this.signMeOut() }>
+            <FontAwesomeIcon size="3x" icon={ faSignOutAlt } />
           </Button>
         </div>
       )

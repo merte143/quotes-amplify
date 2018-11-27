@@ -4,5 +4,14 @@
 /* Main margins */
 .auth-bar {
   text-align: right; }
-  .auth-bar button {
-    margin: 15px; }
+  .auth-bar .btn.logout {
+    position: fixed;
+    right: 20px;
+    top: 30px;
+    padding: 0; }
+    .auth-bar .btn.logout svg path {
+      fill: #011626; }
+    @media (min-width: 768px) {
+      .auth-bar .btn.logout {
+        right: 28px;
+        top: 32px; } }
