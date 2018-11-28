@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Auth }from 'aws-amplify';
 
 import AuthPiece from '../AuthPiece/AuthPiece';
+import './SignUp.css'
 
 import {
     FormSection,
@@ -58,6 +59,7 @@ export default class SignUp extends AuthPiece {
         if (hide && hide.includes(SignUp)) { return null; }
 
         return (
+          <div className='sign-up'>
             <FormSection theme={theme}>
                 <SectionHeader theme={theme}>{'Create a new account'}</SectionHeader>
                 <SectionBody theme={theme}>
@@ -107,6 +109,7 @@ export default class SignUp extends AuthPiece {
                     </SectionFooterSecondaryContent>
                 </SectionFooter>
             </FormSection>
+          </div>
         );
     }
 }

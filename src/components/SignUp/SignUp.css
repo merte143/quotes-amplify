@@ -2,3 +2,7 @@
 /* Colors */
 /* Cloudfront */
 /* Main margins */
+@media only screen and (max-width: 599px) {
+  .sign-up .Form__formSection___3tqxz {
+    padding: 0;
+    min-width: auto; } }

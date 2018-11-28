@@ -1,5 +1,10 @@
 @import "../../variables.scss";
 
 .sign-up {
-  
+  .Form__formSection___3tqxz {
+    @media only screen and (max-width: 599px) {
+      padding: 0;
+      min-width: auto;
+    }
+  }
 }

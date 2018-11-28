@@ -6,6 +6,7 @@ import Quote from '../../routes/Quote'
 import Member from '../../routes/Member'
 import Header from '../Header'
 import Footer from '../Footer'
+import './App.css'
 
 class App extends Component {
 

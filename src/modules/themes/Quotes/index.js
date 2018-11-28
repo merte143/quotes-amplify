@@ -13,10 +13,12 @@ export const NavItem = {}
 export const NavButton = {}
 
 export const FormContainer = {
-  margin: '30px 0'
+  margin: '50px 0'
 }
 
-export const FormSection = {}
+export const FormSection = {
+  minWidth: 'auto'
+}
 
 export const ErrorSection = {}
 
