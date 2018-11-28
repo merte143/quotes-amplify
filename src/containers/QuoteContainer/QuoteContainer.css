@@ -7,8 +7,8 @@
   .quote-container .btn.refresh {
     position: fixed;
     right: 20px;
-    top: 30px;
-    padding: 0; }
+    top: 23px;
+    padding: 4px; }
     .quote-container .btn.refresh svg path {
       fill: #011626; }
     @media (min-width: 768px) {

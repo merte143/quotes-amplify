@@ -64,3 +64,8 @@
     transform: scale(1.03, 1.03); }
   .menu-element .wrapper:hover::after {
     opacity: 1; }
+  .menu-element .wrapper:active {
+    -webkit-transform: scale(1.03, 1.03);
+    transform: scale(1.03, 1.03); }
+  .menu-element .wrapper:active::after {
+    opacity: 1; }

@@ -36,8 +36,11 @@
 /* General sidebar styles */
 .bm-menu {
   background: #f4f4f4;
-  padding: 2.5em 1.5em 0;
+  padding: 2.5em 1em 0;
   font-size: 1.15em; }
+  @media (min-width: 768px) {
+    .bm-menu {
+      padding: 2.5em 1.5em 0; } }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {

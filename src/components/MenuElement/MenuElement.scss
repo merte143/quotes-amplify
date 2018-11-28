@@ -72,4 +72,12 @@
   .wrapper:hover::after {
     opacity: 1;
   }
+  // create same effect on touch devices
+  .wrapper:active {
+    -webkit-transform: scale(1.03, 1.03);
+    transform: scale(1.03, 1.03);
+  }
+  .wrapper:active::after {
+    opacity: 1;
+  }
 }
