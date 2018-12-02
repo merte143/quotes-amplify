@@ -27,18 +27,25 @@ export const SectionHeader = {
   fontSize: '26px'
 }
 
-export const SectionFooter = {}
+export const SectionFooter = {
+  fontSize: '16px'
+}
 
-export const SectionBody = {}
+export const SectionBody = {
+  fontSize: '16px'
+}
 
 export const FormRow = {}
 
 export const ActionRow = {}
 
-export const Input = {}
+export const Input = {
+  fontSize: '16px'
+}
 
 export const Button = {
-  textTransform: 'none'
+  textTransform: 'none',
+  fontSize: '16px'
 }
 
 export const SignInButton = {

@@ -18,6 +18,12 @@ import './index.css'
 // nucleo icons
 import './icons.css'
 
+// add authentication to app
+import Amplify from 'aws-amplify';
+import aws_exports from './aws-exports.js';
+
+Amplify.configure(aws_exports);
+
 const target = document.querySelector('#root')
 
 const history = createHistory()

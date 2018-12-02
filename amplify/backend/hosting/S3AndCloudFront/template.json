@@ -96,12 +96,16 @@
                             "QueryString": "false"
                         },
                         "ViewerProtocolPolicy": "allow-all",
+                        "ViewerCertificate": {
+                          "AcmCertificateArn" : "arn:aws:acm:us-east-1:713457383886:certificate/8e661102-b6b4-4ed3-9a9a-5a59925a8c62",
+                          "SSLSupportMethod": "vip"
+                        },
                         "DefaultTTL": 86400,
                         "MaxTTL": 31536000,
                         "MinTTL": 60,
                         "Compress": true
                     },
-                    "DefaultRootObject": "",
+                    "DefaultRootObject": "index.html",
                     "CustomErrorResponses": [
                         {
                             "ErrorCachingMinTTL": 300,
@@ -121,6 +125,10 @@
                             "ResponseCode": 200,
                             "ResponsePagePath": "/"
                         }
+                    ],
+                    "Aliases": [
+                      "www.denkarium.co",
+                      "denkarium.co"
                     ]
                 }
             }

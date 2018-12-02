@@ -22,10 +22,7 @@ import {
 import Quotes from '../../modules/themes/Quotes'
 
 // add authentication to app
-import Amplify, { Auth }from 'aws-amplify';
-import aws_exports from '../../aws-exports.js';
-
-Amplify.configure(aws_exports);
+import { Auth }from 'aws-amplify';
 
 class Member extends Component {
   render() {
