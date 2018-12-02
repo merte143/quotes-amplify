@@ -6,12 +6,12 @@
   margin: 100px 0px; }
   .quote-form textarea {
     height: 180px;
-    background: #f7f7f7;
+    background: #fff;
     border: 1px solid #eee;
     border-radius: 0;
     box-shadow: none; }
   .quote-form input {
-    background: #f7f7f7;
+    background: #fff;
     border: 1px solid #eee;
     border-radius: 0;
     box-shadow: none; }

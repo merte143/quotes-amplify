@@ -16,6 +16,8 @@ body {
   font-size: 20px;
   color: $color-black;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
+  background: $color-light-grey;
   @media (min-width: $screen-sm) {
     font-size: 20px;
   }

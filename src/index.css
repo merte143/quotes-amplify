@@ -15,7 +15,9 @@ body {
   font-weight: 400;
   font-size: 20px;
   color: #011626;
-  -webkit-overflow-scrolling: touch; }
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  background: #f8f8f8; }
   @media (min-width: 768px) {
     body {
       font-size: 20px; } }

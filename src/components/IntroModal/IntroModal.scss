@@ -2,6 +2,7 @@
 
 .intro-modal {
   .modal-dialog {
+    margin: 50px 10px;
     @media (min-width: $screen-sm) {
       width: 800px;
     }

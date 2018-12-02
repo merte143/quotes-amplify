@@ -13,7 +13,8 @@ export const NavItem = {}
 export const NavButton = {}
 
 export const FormContainer = {
-  margin: '50px 0'
+  margin: '50px 0',
+  background: 'transparent'
 }
 
 export const FormSection = {

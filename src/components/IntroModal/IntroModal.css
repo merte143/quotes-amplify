@@ -2,9 +2,11 @@
 /* Colors */
 /* Cloudfront */
 /* Main margins */
-@media (min-width: 768px) {
-  .intro-modal .modal-dialog {
-    width: 800px; } }
+.intro-modal .modal-dialog {
+  margin: 50px 10px; }
+  @media (min-width: 768px) {
+    .intro-modal .modal-dialog {
+      width: 800px; } }
 
 .intro-modal .modal-content {
   border-radius: 0; }
